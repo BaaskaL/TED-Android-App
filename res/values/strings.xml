@@ -23,16 +23,16 @@
 	THE SOFTWARE.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name">TEDxAlcatraz</string>
-    <string name="eventdate">December 1, 2010</string>
-	<string name="notetag">"TEDxAlcatraz \n\n#tedx #TEDxAlcatraz"</string>
-    <string name="facebookurl">http://touch.facebook.com/#/tedxalcatraz</string>
-	<string name="twitterurl">http://www.twitter.com/TEDxAlcatraz</string>
+    <string name="app_name">TED2011</string>
+    <string name="eventdate">February 28 - March 4, 2011</string>
+	<string name="notetag">"TED2011 \n\n#ted2011</string>
+    <string name="facebookurl">http://touch.facebook.com/#/ted</string>
+	<string name="twitterurl">http://www.twitter.com/tedtalks</string>
     <string name="registerurl"></string>
-    <string name="email_subject">Question about TEDxAlcatraz</string>
-    <string name="email_address">TEDxAlcatraz@gmail.com</string>
-    <string name="eventId">13</string>
-    <string name="event_address">540 Howard Street, San Francisco, California</string>
+    <string name="email_subject">Question about TED2011 App</string>
+    <string name="email_address">peter@catch.com</string>
+    <string name="eventId">19</string>
+    <string name="event_address">300 E. Ocean Boulevard Long Beach, CA 90802</string>
 	<string name="error_loading_title">Network issue</string>
 	<string name="error_loading_message">There was an issue contacting the server. Please try again later.</string>  
     

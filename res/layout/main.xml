@@ -62,11 +62,11 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1">
-            <Button android:id="@+id/btnschedule"
+            <Button android:id="@+id/btnuniversity"
                 style="@style/HomeButton"
-                android:onClick="btnschedule_Click"
-                android:text="Theme"
-                android:drawableTop="@drawable/schedule_button"/>
+                android:onClick="btnuniversity_Click"
+                android:text="TEDUniversity"
+                android:drawableTop="@drawable/university_button"/>
             <Button android:id="@+id/btnmap"
                 style="@style/HomeButton"
                 android:onClick="btnmap_Click"

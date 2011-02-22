@@ -45,7 +45,7 @@ public class SpeakerResultActivity extends LazyActivity {
     	requestWindowFeature(Window.FEATURE_NO_TITLE);
 		mFrom = new String[] {
 				SearchResult.NAME,
-				SearchResult.TOPIC,
+				SearchResult.TITLE,
 				SearchResult.PHOTOURL
 		};
 

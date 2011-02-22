@@ -93,6 +93,8 @@ public final class R {
         public static final int twitter_focused=0x7f020031;
         public static final int twitter_menu=0x7f020032;
         public static final int twitter_pressed=0x7f020033;
+        public static final int university=0x7f020034;
+        public static final int university_button=0x7f020035;
     }
     public static final class id {
         public static final int accountIcon=0x7f080008;
@@ -105,9 +107,9 @@ public final class R {
         public static final int btnfacebook=0x7f080010;
         public static final int btnmap=0x7f080017;
         public static final int btnnote=0x7f08000f;
-        public static final int btnschedule=0x7f080016;
         public static final int btnspeakers=0x7f080015;
         public static final int btntwitter=0x7f080011;
+        public static final int btnuniversity=0x7f080016;
         public static final int dialog_discard_confirm=0x7f080003;
         public static final int dialog_moderator=0x7f080004;
         public static final int dialog_wave=0x7f080005;
