@@ -38,7 +38,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.tedx.alcatraz.R;
+import com.catchnotes.tedapp.R;
 import com.tedx.adapters.LazyAdapter;
 import com.tedx.helpers.Common;
 

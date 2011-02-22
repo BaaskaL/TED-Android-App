@@ -24,7 +24,7 @@
 
 package com.tedx.utility;
 
-import com.tedx.alcatraz.R;
+import com.catchnotes.tedapp.R;
 import com.tedx.objects.SnapticIntent;
 
 import android.app.AlertDialog;

@@ -34,7 +34,7 @@ import android.os.Message;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
-import com.tedx.alcatraz.R;
+import com.catchnotes.tedapp.R;
 
 public class RemoteImageView extends ImageView{
 	private String mLocal;

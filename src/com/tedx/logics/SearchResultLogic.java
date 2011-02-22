@@ -27,7 +27,7 @@ package com.tedx.logics;
 import android.content.res.Resources;
 import android.net.Uri;
 
-import com.tedx.alcatraz.R;
+import com.catchnotes.tedapp.R;
 
 
 public class SearchResultLogic 
