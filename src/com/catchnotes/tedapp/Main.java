@@ -152,6 +152,7 @@ public class Main extends Activity {
 		this.startActivity(intent);
     }
     
+    //Loading up the barcode scanner
     public void btnscan_Click(View target)
     {
     	try
@@ -178,6 +179,12 @@ public class Main extends Activity {
     	    });
     	    downloadDialog.show();
     	}
+    }
+
+    //Loading up the barcode scanner
+    public void btnuniversity_Click(View target)
+    {
+    	
     }
     
     @Override

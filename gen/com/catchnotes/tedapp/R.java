@@ -95,6 +95,8 @@ public final class R {
         public static final int twitter_pressed=0x7f020033;
         public static final int university=0x7f020034;
         public static final int university_button=0x7f020035;
+        public static final int university_focused=0x7f020036;
+        public static final int university_pressed=0x7f020037;
     }
     public static final class id {
         public static final int accountIcon=0x7f080008;

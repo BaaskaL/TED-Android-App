@@ -69,6 +69,7 @@
         <item name="android:orientation">horizontal</item>
         <item name="android:background">@color/white</item>
         <item name="android:gravity">center</item>
+        <item name="android:paddingTop">30dp</item>
 	</style>
     <style name="TitleBarAction">
         <item name="android:layout_width">@dimen/title_height</item>
