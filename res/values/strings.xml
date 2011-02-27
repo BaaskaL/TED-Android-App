@@ -37,6 +37,16 @@
 	<string name="error_loading_message">There was an issue contacting the server. Please try again later.</string>  
     
 	<string name="WebServiceAddress">http://www.tedxapps.com/wsdl/tedxservice.svc/</string>
+
+	<!--WebServices-->
+	<string name="WebService_GetEventVersion">GetEventVersion</string>
+    
+    
+	<!--Preferences-->
+    <string name="EventVersionPreference">EventVersionPreference</string>
+    <string name="EventVersionPreference_EventVersion">EventVersionPreference_EventVersion</string>
+	<string name="EventVersionPreference_Speakers">EventVersionPreference_Speakers</string>
+
     
     <string name="attendeefacebook">http://touch.facebook.com/</string>
     <string name="attendeetwitter">http://www.twitter.com/</string>

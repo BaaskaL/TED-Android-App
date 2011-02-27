@@ -36,4 +36,22 @@
 	>
 	</WebView>
 
+	<!-- individual profile actions -->
+	
+	<LinearLayout		
+		style="@style/MainTheme.Actions"
+	>   	
+	   	<Button
+		    android:id="@+id/btnWrite"
+	    	android:onClick="btnWrite_Click"
+	    	android:text="Take Notes"
+			style="@style/MainTheme.ActionButton"
+	   	/>
+	   	<Button
+		    android:id="@+id/btnRead"
+	    	android:onClick="btnRead_Click"
+	    	android:text="Read Notes"
+			style="@style/MainTheme.ActionButton"
+	   	/>
+	</LinearLayout>
 </LinearLayout>

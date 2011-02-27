@@ -25,31 +25,50 @@
 package com.catchnotes.tedapp;
 
 import com.catchnotes.tedapp.R;
+import com.tedx.utility.IntentIntegrator;
+import com.tedx.objects.SearchResult;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.View;
 import android.view.Window;
 import android.webkit.WebView;
 
 public class SpeakerActivity extends Activity{
 	public WebView mWebView;
+	private IntentIntegrator _notesIntent;
+	private Bundle speaker;
 
-	private String SpeakerId;
     protected void onCreate(Bundle savedInstanceState) {
     	requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.speakerview);
-        
+        _notesIntent = new IntentIntegrator(this);
 
-        Bundle extras = getIntent().getExtras();            
-        SpeakerId = extras.get("SpeakerId").toString();
+        speaker = getIntent().getExtras();            
    
         mWebView = (WebView) findViewById(R.id.webview);   
-        mWebView.getSettings().setJavaScriptEnabled(true);      
         mWebView.setInitialScale(120);
+        mWebView.getSettings().setJavaScriptEnabled(true);
+        
+        StringBuilder querystring = new StringBuilder();
+        querystring.append("description=");
+        querystring.append(speaker.get("Description").toString());
+        
+        querystring.append("&speakername=");
+        querystring.append(speaker.get("ProfileName").toString());
 
-		mWebView.loadUrl("http://www.tedxapps.com/mobile/speaker/?SpeakerId=" + SpeakerId);
+        querystring.append("&speakertitle=");
+        querystring.append(speaker.get("Title").toString());
+        
+        querystring.append("&speakerphoto=");
+        querystring.append(speaker.get("PhotoUrl").toString());
+        
+		String url = "file:///android_asset/speaker/index.html?" + querystring.toString();
+		
+		mWebView.loadUrl(url);
+		
     }
     
     public void onResume()
@@ -57,15 +76,52 @@ public class SpeakerActivity extends Activity{
     	super.onResume();
         setContentView(R.layout.speakerview);
 
-        Bundle extras = getIntent().getExtras();            
-        SpeakerId = extras.get("SpeakerId").toString();
+        speaker = getIntent().getExtras();            
         
-        mWebView = (WebView) findViewById(R.id.webview);            
-        mWebView.getSettings().setJavaScriptEnabled(true);            
+        mWebView = (WebView) findViewById(R.id.webview);
         mWebView.setInitialScale(120);
+        mWebView.getSettings().setJavaScriptEnabled(true);
+
+        mWebView = (WebView) findViewById(R.id.webview);
+		
+        StringBuilder querystring = new StringBuilder();
+        querystring.append("description=");
+        querystring.append(speaker.get("Description").toString());
         
-		mWebView.loadUrl("http://www.tedxapps.com/mobile/speaker/?SpeakerId=" + SpeakerId);
+        querystring.append("&speakername=");
+        querystring.append(speaker.get("ProfileName").toString());
+
+        querystring.append("&speakertitle=");
+        querystring.append(speaker.get("Title").toString());
+        
+        querystring.append("&speakerphoto=");
+        querystring.append(speaker.get("PhotoUrl").toString());
+        
+		String url = "file:///android_asset/speaker/index.html?" + querystring.toString();
+		
+		mWebView.loadUrl(url);
 	}
+    
+    //Writing Notes with this specific speaker
+    public void btnWrite_Click(View target)
+    {
+    	String speakerNote 	= 	"Speaker: " + speaker.getString(SearchResult.NAME) + "\n" +
+    							"Title: " + speaker.getString(SearchResult.TITLE) + "\n" + 
+    							"Bio: " + speaker.getString(SearchResult.DESCRIPTION) + "\n" + 
+    							"\nWebsite: " + speaker.getString(SearchResult.WEBSITE) + "\n" +
+    							"\nTwitter: " + speaker.getString(SearchResult.TWITTER) + "\n" +
+    							"\nMy Notes: " + "\n\n" + 
+    							"\n________________________________\nTags:" +
+    							this.getString(R.string.notetag);
+		_notesIntent.createNote(speakerNote);
+    }
+    
+    //Reading the Notes
+    public void btnRead_Click(View target)
+    {
+    	String notetag = this.getString(R.string.notetag);
+		_notesIntent.viewNotes(notetag);
+    }
     
     //Back Button
     @Override

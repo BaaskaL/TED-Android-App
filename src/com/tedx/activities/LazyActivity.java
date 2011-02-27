@@ -351,5 +351,23 @@ public abstract class LazyActivity extends Activity implements OnItemClickListen
 			return false;
 		}
 		
+		@SuppressWarnings("unchecked")
+		final protected boolean loadSpeakerResultsByCollection(JSONArray collection) {
+			try {
+				for (int i = 0; i < collection.length(); i++) {
+					if (isCancelled()) {
+						return false;
+					}
+					try {
+						publishProgress(activity.loadJSON(collection.getJSONObject(i)));
+					} catch (JSONException e) {
+					}
+				}
+				return true;
+			} catch (Exception e) {
+				activity.setException(e);
+			}
+			return false;
+		}
 	}
 }

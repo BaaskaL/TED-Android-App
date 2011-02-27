@@ -24,10 +24,22 @@
 
 package com.tedx.logics;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.net.Uri;
 
 import com.catchnotes.tedapp.R;
+import com.tedx.helpers.Common;
+import com.tedx.webservices.WebServices;
 
 
 public class SearchResultLogic 
@@ -45,5 +57,80 @@ public class SearchResultLogic
 		URL = builder.build().toString();
 		
 		return URL;
+	}
+	
+	public static int getSearchResultVersionByEventId(Resources res, int EventId)
+	{
+		String Action = res.getString(R.string.WebService_GetEventVersion);
+		
+		JSONObject requestJSONParameters = new JSONObject();
+		try {
+			requestJSONParameters.put("EventId", Integer.valueOf(EventId));
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			return 0;
+		}		
+		
+		String URL = res.getString(R.string.WebServiceAddress) + Action;
+		
+		JSONObject responseJSON = WebServices.SendHttpPost(URL, requestJSONParameters);
+		
+		if(responseJSON != null)
+		{
+			try {
+				if(responseJSON.getBoolean("IsSuccessful"))
+				{
+					return responseJSON.getInt("EventVersion");
+				}
+				else return 0;
+				} catch (JSONException e) {
+				// TODO Auto-generated catch block
+					return 0;
+			}
+		}
+		else return 0;
+	}	
+	
+	//Get Current Version from Cache
+	public static int getCurrentVersionByEventIdFromCache(Context context, int EventId)
+	{
+		//If Stored in Preference
+		SharedPreferences appSettings = context.getSharedPreferences(context.getString(R.string.EventVersionPreference), android.content.Context.MODE_PRIVATE);		
+		return appSettings.getInt(context.getString(R.string.EventVersionPreference_EventVersion) + String.valueOf(EventId), 0);
+	}
+	
+	public static void setCurrentVersionByEventId(Context context, int EventId, int EventVersion)
+	{
+		//If Stored in Preference
+		SharedPreferences appSettings = context.getSharedPreferences(context.getString(R.string.EventVersionPreference), android.content.Context.MODE_PRIVATE);		
+		SharedPreferences.Editor prefEditor = appSettings.edit();  
+		prefEditor.putInt(context.getString(R.string.EventVersionPreference_EventVersion) + String.valueOf(EventId), EventVersion);
+		prefEditor.commit();	
+	}
+	
+	public static JSONArray loadSpeakerSearchResultsFromWeb(Context context, String url, int EventId) throws IOException, JSONException
+	{
+		URL request = new URL(url);
+		String jsonRaw = Common.getContent((InputStream) request.getContent());
+		JSONArray collection = new JSONArray(jsonRaw);
+		
+		//Caching it
+		SharedPreferences appSettings = context.getSharedPreferences(context.getString(R.string.EventVersionPreference), android.content.Context.MODE_PRIVATE);		
+		SharedPreferences.Editor prefEditor = appSettings.edit();  
+		prefEditor.putString(context.getString(R.string.EventVersionPreference_Speakers) + String.valueOf(EventId), jsonRaw);
+		prefEditor.commit();	
+		
+		
+		return collection;
+	}
+	
+	public static JSONArray loadSpeakerSearchResultsFromCache(Context context, int EventId) throws IOException, JSONException
+	{		
+		SharedPreferences appSettings = context.getSharedPreferences(context.getString(R.string.EventVersionPreference), android.content.Context.MODE_PRIVATE);		
+		
+		String jsonRaw = appSettings.getString(context.getString(R.string.EventVersionPreference_Speakers) + String.valueOf(EventId), "");
+		JSONArray collection = new JSONArray(jsonRaw);		
+		
+		return collection;
 	}
 }

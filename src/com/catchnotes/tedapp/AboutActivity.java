@@ -40,10 +40,10 @@ public class AboutActivity extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.webview);
 
-        mWebView = (WebView) findViewById(R.id.webview);            
-        mWebView.getSettings().setJavaScriptEnabled(true);            
-        
-		mWebView.loadUrl("http://www.tedxapps.com/mobile/about/?EventId=" + this.getResources().getString(R.string.eventId));
+        mWebView = (WebView) findViewById(R.id.webview);
+		String url = "file:///android_asset/about/index.html";
+		
+		mWebView.loadUrl(url);
     }
     
     public void onResume()
@@ -52,9 +52,9 @@ public class AboutActivity extends Activity{
         setContentView(R.layout.webview);
 
         mWebView = (WebView) findViewById(R.id.webview);            
-        mWebView.getSettings().setJavaScriptEnabled(true);            
-        
-		mWebView.loadUrl("http://www.tedxapps.com/mobile/about/?EventId=" + this.getResources().getString(R.string.eventId));
+		String url = "file:///android_asset/about/index.html";
+
+		mWebView.loadUrl(url);
 	}
     
     //Back Button

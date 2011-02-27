@@ -103,15 +103,17 @@ public final class R {
         public static final int accountSpinner=0x7f08000c;
         public static final int blocks_now=0x7f080007;
         public static final int blocks_ruler=0x7f080006;
-        public static final int btnabout=0x7f080014;
+        public static final int btnRead=0x7f08001e;
+        public static final int btnWrite=0x7f08001d;
+        public static final int btnabout=0x7f080017;
         public static final int btnaddcontact=0x7f08000d;
         public static final int btnaddcontact_blackwhite=0x7f08000e;
         public static final int btnfacebook=0x7f080010;
-        public static final int btnmap=0x7f080017;
+        public static final int btnmap=0x7f080016;
         public static final int btnnote=0x7f08000f;
-        public static final int btnspeakers=0x7f080015;
+        public static final int btnspeakers=0x7f080014;
         public static final int btntwitter=0x7f080011;
-        public static final int btnuniversity=0x7f080016;
+        public static final int btnuniversity=0x7f080015;
         public static final int dialog_discard_confirm=0x7f080003;
         public static final int dialog_moderator=0x7f080004;
         public static final int dialog_wave=0x7f080005;
@@ -140,16 +142,24 @@ public final class R {
         public static final int webview=0x7f030007;
     }
     public static final class string {
+        /** Preferences
+         */
+        public static final int EventVersionPreference=0x7f040019;
+        public static final int EventVersionPreference_EventVersion=0x7f04001a;
+        public static final int EventVersionPreference_Speakers=0x7f04001b;
         public static final int WebServiceAddress=0x7f040017;
+        /** WebServices
+         */
+        public static final int WebService_GetEventVersion=0x7f040018;
         public static final int app_name=0x7f04000b;
-        public static final int attendeefacebook=0x7f040018;
-        public static final int attendeetwitter=0x7f040019;
+        public static final int attendeefacebook=0x7f04001c;
+        public static final int attendeetwitter=0x7f04001d;
         public static final int cancel_button=0x7f040000;
-        public static final int create_image_note_button=0x7f04001b;
-        public static final int create_location_note_button=0x7f04001d;
-        public static final int create_quick_note_button=0x7f04001c;
-        public static final int create_simple_note_button=0x7f04001a;
-        public static final int cursor_positioning_button=0x7f04001f;
+        public static final int create_image_note_button=0x7f04001f;
+        public static final int create_location_note_button=0x7f040021;
+        public static final int create_quick_note_button=0x7f040020;
+        public static final int create_simple_note_button=0x7f04001e;
+        public static final int cursor_positioning_button=0x7f040023;
         public static final int email_address=0x7f040012;
         public static final int email_subject=0x7f040011;
         public static final int error_dialog_title=0x7f040003;
@@ -167,12 +177,12 @@ public final class R {
         public static final int notetag=0x7f04000d;
         public static final int ok_button=0x7f040002;
         public static final int registerurl=0x7f040010;
-        public static final int toast_quick_note=0x7f040020;
+        public static final int toast_quick_note=0x7f040024;
         public static final int twitterurl=0x7f04000f;
         public static final int upgrade_button=0x7f040001;
         public static final int upgrade_notes_message=0x7f040009;
         public static final int upgrade_notes_title=0x7f040008;
-        public static final int view_notes_button=0x7f04001e;
+        public static final int view_notes_button=0x7f040022;
     }
     public static final class style {
         public static final int ActionButton=0x7f090018;
@@ -192,6 +202,11 @@ public final class R {
         public static final int ListEnd=0x7f09001e;
         public static final int ListItem=0x7f090011;
         public static final int Main=0x7f09001f;
+        /** Styles from Pickup Sports Source, cleaning this part up afterwards
+         */
+        public static final int MainTheme=0x7f090025;
+        public static final int MainTheme_ActionButton=0x7f090026;
+        public static final int MainTheme_Actions=0x7f090027;
         public static final int NoteContent=0x7f09000f;
         public static final int NoteCreate=0x7f09000e;
         public static final int NoteTime=0x7f090010;

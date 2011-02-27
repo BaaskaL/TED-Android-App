@@ -25,7 +25,7 @@
 package com.tedx.objects;
 
 public class SearchResult {
-	public static final String PHOTOURL = "PhotoURL";	
+	public static final String PHOTOURL = "PhotoUrl";	
 	public static final String SPEAKERID = "SpeakerId";									
 	public static final String NAME = "ProfileName";
 	public static final String TITLE = "Title";		
@@ -33,4 +33,6 @@ public class SearchResult {
 	public static final String TWITTER = "Twitter";			
 	public static final String EMAIL = "Email";
 	public static final String TOPIC = "Topic";
+	public static final String DESCRIPTION = "Description";
+	public static final String WEBSITE = "WebSite";
 }

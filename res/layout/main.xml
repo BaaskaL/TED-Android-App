@@ -45,16 +45,16 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1">
-            <Button android:id="@+id/btnabout"
-                style="@style/HomeButton"
-                android:onClick="btnabout_Click"
-                android:text="About"
-                android:drawableTop="@drawable/about_button"/>
             <Button android:id="@+id/btnspeakers"
                 style="@style/HomeButton"
                 android:onClick="btnspeakers_Click"
                 android:text="Speakers"
                 android:drawableTop="@drawable/speaker_button"/>
+			<Button android:id="@+id/btnuniversity"
+                style="@style/HomeButton"
+                android:onClick="btnuniversity_Click"
+                android:text="TEDUniversity"
+                android:drawableTop="@drawable/university_button"/>
         </LinearLayout>
         
 		<LinearLayout
@@ -62,16 +62,16 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1">
-            <Button android:id="@+id/btnuniversity"
-                style="@style/HomeButton"
-                android:onClick="btnuniversity_Click"
-                android:text="TEDUniversity"
-                android:drawableTop="@drawable/university_button"/>
             <Button android:id="@+id/btnmap"
                 style="@style/HomeButton"
                 android:onClick="btnmap_Click"
                 android:text="Map"
                 android:drawableTop="@drawable/map_button"/>
+			<Button android:id="@+id/btnnote"
+                style="@style/HomeButton"
+                android:onClick="btnnote_Click"
+                android:text="Notes"
+                android:drawableTop="@drawable/note_button"/>
         </LinearLayout>
         
 		<LinearLayout
@@ -84,11 +84,11 @@
                 android:onClick="btnfacebook_Click"
                 android:text="Facebook"
                 android:drawableTop="@drawable/facebook_button"/>
-            <Button android:id="@+id/btnnote"
+			<Button android:id="@+id/btnabout"
                 style="@style/HomeButton"
-                android:onClick="btnnote_Click"
-                android:text="Notes"
-                android:drawableTop="@drawable/note_button"/>
+                android:onClick="btnabout_Click"
+                android:text="About"
+                android:drawableTop="@drawable/about_button"/>
         </LinearLayout>
    	</LinearLayout>
 	<LinearLayout

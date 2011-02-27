@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+
+<html> 
+<head>
+	<title>Speaker Detail</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=320" />
+	
+		<style type="text/css">
+		body {
+			background-color:Black;
+			color:#cccccc;
+			margin: 0;
+			padding: 0;
+			font-weight: normal;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+		
+		h2
+		{
+			margin-bottom:5px
+		}
+		
+		/* Speaker Photo */
+		.speakerphoto
+		{
+			width:150px;
+			padding:10px;
+			float:left;
+		}
+		
+		.speakertitle
+		{
+			float:left;
+			clear:right;
+			margin:5px;
+		}
+		
+		.speakerdescription
+		{
+			clear:both;
+			padding:20px;
+		}
+		
+		/* Content */
+		.pages
+		{
+			padding:15px;
+		}
+		
+		span.red
+		{
+			color:Red;
+		}
+		
+		#main
+		{
+			width:100%;
+			padding:10px;
+		}
+		
+		#about
+		{
+			font-size:40px;
+		}
+		
+		/*Phones thats smaller than 480px*/
+		@media only screen and (max-device-width: 480px) {
+			
+				.speakerphoto
+				{
+					width:140px;
+				}
+				
+				.speakertitle
+				{
+					width:150px;
+				}
+				
+				.pageimage
+				{
+					width:300px;
+				}
+		}
+		
+		/*Phones thats smaller than 480px*/
+		@media only screen and (max-device-width: 320px) {
+			
+				.speakerphoto
+				{
+					width:120px;
+				}
+				
+				.speakertitle
+				{
+					width:130px;
+				}
+				
+				.pageimage
+				{
+					width:280px;
+				}
+		}
+	</style>
+	
+	<script language="javascript" type="text/javascript" src="jquery.js"></script> 
+	<script language="javascript" type="text/javascript" src="jquery.json.js"></script> 
+	<script language="javascript" type="text/javascript" src="json2.js"></script> 
+	
+	<script langauge="javascript" type="text/javascript">
+	    function getQueryString() {
+		  var result = {}, queryString = location.search.substring(1),
+		      re = /([^&=]+)=([^&]*)/g, m;
+		
+		  while (m = re.exec(queryString)) {
+		    result[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+		  }
+		
+		  return result;
+		}
+		
+		$(document).ready(
+			function(){ 
+				var speakerdescription = getQueryString()["description"];
+				var speakername = getQueryString()["speakername"];
+				var speakertitle = getQueryString()["speakertitle"];
+				var speakerphoto = getQueryString()["speakerphoto"];
+				
+				$('#speakertitle').text(speakertitle);
+				$('#speakername').text(speakername);
+				$('#speakerdescription').text(speakerdescription);
+				$('#speakerphoto').attr('src', speakerphoto);
+		});
+		
+    </script>
+</head>
+<body>
+    <div>
+		<img id="speakerphoto" class="speakerphoto" style="border-width:0px;" />
+		<div class="speakertitle">
+			<h3><span id="speakername"></span></h3>
+			<span><i id="speakertitle"></i></span>
+		</div>
+		<p id="speakerdescription" class="speakerdescription">as dfa fa</p>
+    </div>
+</body>
+</html>

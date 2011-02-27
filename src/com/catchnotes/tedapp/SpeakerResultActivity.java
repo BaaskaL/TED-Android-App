@@ -24,8 +24,10 @@
 
 package com.catchnotes.tedapp;
 
+import java.io.IOException;
 import java.util.HashMap;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -36,6 +38,7 @@ import android.view.Window;
 import android.widget.AdapterView;
 
 import com.catchnotes.tedapp.R;
+import com.tedx.logics.SearchResultLogic;
 import com.tedx.objects.SearchResult;
 import com.tedx.activities.LazyActivity;
 
@@ -79,11 +82,44 @@ public class SpeakerResultActivity extends LazyActivity {
 			SpeakerResultActivity activity = (SpeakerResultActivity) super.activity;
 
 			int EventId = Integer.valueOf(activity.getResources().getString(R.string.eventId));
-			
-			String Url = 
-				com.tedx.logics.SearchResultLogic.getSearchResultsByCriteriaURL(
-						activity.getResources(), EventId, activity.mPage);
-			return loadUrl(Url);
+			int ServerEventVersion = SearchResultLogic.getSearchResultVersionByEventId(activity.getResources(), EventId);
+			JSONArray speakers;
+
+			//check point to load from cache or web
+			if(	ServerEventVersion != 0 &&
+				SearchResultLogic.getCurrentVersionByEventIdFromCache(activity, EventId) != ServerEventVersion)
+			{
+				String Url = 
+					com.tedx.logics.SearchResultLogic.getSearchResultsByCriteriaURL(
+							activity.getResources(), EventId, activity.mPage);
+				
+				//Set the version
+				SearchResultLogic.setCurrentVersionByEventId(activity, EventId, ServerEventVersion);
+				
+				try {
+					speakers = SearchResultLogic.loadSpeakerSearchResultsFromWeb(activity, Url, EventId);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					speakers = null;
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					speakers = null;
+				}
+			}
+			else
+			{
+				try {
+					speakers = SearchResultLogic.loadSpeakerSearchResultsFromCache(activity, EventId);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					speakers = null;
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					speakers = null;
+				}
+			}
+			return loadSpeakerResultsByCollection(speakers);	
+
 		}
 
 		@Override
@@ -108,6 +144,8 @@ public class SpeakerResultActivity extends LazyActivity {
 		SearchResults.put(SearchResult.TWITTER, String.valueOf(data.getString("Twitter")));
 		SearchResults.put(SearchResult.EMAIL, String.valueOf(data.getString("Email")));
 		SearchResults.put(SearchResult.TOPIC, String.valueOf(data.getString("Topic")));
+		SearchResults.put(SearchResult.DESCRIPTION, String.valueOf(data.getString("Description")));
+		SearchResults.put(SearchResult.WEBSITE, String.valueOf(data.getString("WebSite")));
 
 		return SearchResults;
 	}
