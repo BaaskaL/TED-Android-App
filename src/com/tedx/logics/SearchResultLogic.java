@@ -59,6 +59,19 @@ public class SearchResultLogic
 		return URL;
 	}
 	
+	public static String getSessionsByCriteriaURL(Resources res, int EventId)
+	{
+		String Action = "GetSessionsByEventId";
+		String URL = res.getString(R.string.WebServiceAddress) + Action;		
+		
+		Uri u = Uri.parse(URL);
+		Uri.Builder builder = u.buildUpon();		
+		builder.appendQueryParameter("eventid", String.valueOf(EventId));
+		URL = builder.build().toString();
+		
+		return URL;
+	}
+	
 	public static int getSearchResultVersionByEventId(Resources res, int EventId)
 	{
 		String Action = res.getString(R.string.WebService_GetEventVersion);
@@ -120,6 +133,8 @@ public class SearchResultLogic
 		prefEditor.putString(context.getString(R.string.EventVersionPreference_Speakers) + String.valueOf(EventId), jsonRaw);
 		prefEditor.commit();	
 		
+		//Load up the Sessions
+		loadEventSessionsFromWeb(context, EventId);
 		
 		return collection;
 	}
@@ -132,5 +147,48 @@ public class SearchResultLogic
 		JSONArray collection = new JSONArray(jsonRaw);		
 		
 		return collection;
+	}
+	
+	public static JSONArray loadEventSessionsFromWeb(Context context, int EventId) throws IOException, JSONException
+	{
+		String Url = getSessionsByCriteriaURL(context.getResources(), EventId);
+		URL request = new URL(Url);
+		String jsonRaw = Common.getContent((InputStream) request.getContent());
+		JSONArray collection = new JSONArray(jsonRaw);
+		
+		//Caching it
+		SharedPreferences appSettings = context.getSharedPreferences(context.getString(R.string.EventVersionPreference), android.content.Context.MODE_PRIVATE);		
+		SharedPreferences.Editor prefEditor = appSettings.edit();  
+		prefEditor.putString(context.getString(R.string.EventVersionPreference_Sessions) + String.valueOf(EventId), jsonRaw);
+		prefEditor.commit();
+		
+		return collection;
+	}
+	
+	public static JSONArray loadEventSessionsFromCache(Context context, int EventId) throws IOException, JSONException
+	{		
+		SharedPreferences appSettings = context.getSharedPreferences(context.getString(R.string.EventVersionPreference), android.content.Context.MODE_PRIVATE);		
+		
+		String jsonRaw = appSettings.getString(context.getString(R.string.EventVersionPreference_Sessions) + String.valueOf(EventId), "");
+		JSONArray collection = new JSONArray(jsonRaw);		
+		
+		return collection;
+	}
+	
+	public static String getSessionNameBySession(Context context, int EventId, int Session) throws IOException, JSONException
+	{
+		JSONArray sessions = loadEventSessionsFromCache(context, EventId);
+		
+		String ret = "";
+		for(int i = 0; i < sessions.length(); i++)
+		{
+			if(sessions.getJSONObject(i).getInt("Session") == Session)
+			{
+				ret = "Session " + String.valueOf(sessions.getJSONObject(i).getString("Session")) + ": " + sessions.getJSONObject(i).getString("SessionName");
+				break;
+			}
+		}
+		
+		return ret;
 	}
 }

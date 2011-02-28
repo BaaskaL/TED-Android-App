@@ -52,6 +52,9 @@
     <string name="EventVersionPreference">EventVersionPreference</string>
     <string name="EventVersionPreference_EventVersion">EventVersionPreference_EventVersion</string>
 	<string name="EventVersionPreference_Speakers">EventVersionPreference_Speakers</string>
+	<string name="EventVersionPreference_Sessions">EventVersionPreference_Sessions</string>
+	
+	
 
     
     <string name="attendeefacebook">http://touch.facebook.com/</string>

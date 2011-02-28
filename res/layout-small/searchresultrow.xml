@@ -27,6 +27,7 @@
 	android:layout_width="fill_parent"
 	android:background="@android:color/transparent"
 	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
 >
 	<TextView 	android:id="@+id/groupheader"
             	android:textSize="20px"
@@ -35,6 +36,7 @@
             	android:textColorHighlight="#000"
             	android:background="#DDD"
             	android:visibility="gone"
+            	android:layout_weight="1"
             	android:layout_width="fill_parent"
             	android:layout_height="wrap_content"/>
 
@@ -42,6 +44,7 @@
 		android:background="@android:color/transparent"
 		android:layout_height="wrap_content"
 		android:layout_width="fill_parent"
+		android:layout_weight="1"
 		android:padding="10dip"
 		style="@style/SearchResult"
 	>

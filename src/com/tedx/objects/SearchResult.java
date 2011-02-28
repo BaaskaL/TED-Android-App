@@ -36,4 +36,8 @@ public class SearchResult {
 	public static final String DESCRIPTION = "Description";
 	public static final String WEBSITE = "WebSite";
 	public static final String SESSION = "Session";
+	public static final String EVENTID = "EventId";
+
+	public static final String SESSIONNAME = "SessionName";
+
 }
