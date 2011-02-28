@@ -35,4 +35,5 @@ public class SearchResult {
 	public static final String TOPIC = "Topic";
 	public static final String DESCRIPTION = "Description";
 	public static final String WEBSITE = "WebSite";
+	public static final String SESSION = "Session";
 }

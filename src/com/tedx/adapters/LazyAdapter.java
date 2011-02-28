@@ -67,6 +67,7 @@ public class LazyAdapter extends SimpleAdapter implements Filterable{
 				riv.loadImage();
 			}
 		}
+		
 		return ret;
 	}
 
@@ -78,6 +79,11 @@ public class LazyAdapter extends SimpleAdapter implements Filterable{
 		mFlinging = flinging;
 	}
 
+    @Override
+    public boolean areAllItemsEnabled() {
+        return false;
+    }
+    
 	@Override
 	public void setViewImage(final ImageView image, final String value) {
 		if (value != null && value.length() > 0 && image instanceof RemoteImageView) {

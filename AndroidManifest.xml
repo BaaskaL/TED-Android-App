@@ -64,6 +64,16 @@
         			android:theme="@android:style/Theme.Light">
         </activity>
         
+        <activity	android:name=".SpeakerResultTabActivity"
+        			android:screenOrientation="portrait"
+        			android:theme="@android:style/Theme.Light">        			
+        </activity>
+        
+		<activity	android:name=".SessionResultActivity"
+        			android:screenOrientation="portrait"
+        			android:theme="@android:style/Theme.Light">        			
+        </activity>
+        
 		<uses-library android:name="com.google.android.maps" />  
     </application>
 

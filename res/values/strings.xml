@@ -33,6 +33,12 @@
     <string name="email_address">peter@catch.com</string>
     <string name="eventId">19</string>
     <string name="event_address">300 E. Ocean Boulevard Long Beach, CA 90802</string>
+	<string name="eventSessions">12</string>
+    
+    
+    <string name="subEventId">18</string>
+    <string name="subEventSessions">3</string>
+    
 	<string name="error_loading_title">Network issue</string>
 	<string name="error_loading_message">There was an issue contacting the server. Please try again later.</string>  
     

@@ -30,11 +30,12 @@
 	>
 
 	<!-- header -->
-
-	<TextView 
-		android:text="Speakers"
-		style="@style/Header"
-	/>
+<!---->
+<!--	<TextView -->
+<!--		android:text="Speakers"-->
+<!--		style="@style/Header"-->
+<!--	/>-->
+<!--	-->
 
 	<LinearLayout
 		android:layout_height="wrap_content"

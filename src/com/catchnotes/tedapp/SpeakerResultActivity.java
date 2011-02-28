@@ -42,7 +42,8 @@ import com.tedx.logics.SearchResultLogic;
 import com.tedx.objects.SearchResult;
 import com.tedx.activities.LazyActivity;
 
-public class SpeakerResultActivity extends LazyActivity {
+public class SpeakerResultActivity extends LazyActivity{
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
     	requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -146,6 +147,7 @@ public class SpeakerResultActivity extends LazyActivity {
 		SearchResults.put(SearchResult.TOPIC, String.valueOf(data.getString("Topic")));
 		SearchResults.put(SearchResult.DESCRIPTION, String.valueOf(data.getString("Description")));
 		SearchResults.put(SearchResult.WEBSITE, String.valueOf(data.getString("WebSite")));
+		SearchResults.put(SearchResult.SESSION, String.valueOf(data.getInt("Session")));
 
 		return SearchResults;
 	}

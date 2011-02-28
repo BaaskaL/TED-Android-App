@@ -99,12 +99,14 @@ public final class R {
         public static final int university_pressed=0x7f020037;
     }
     public static final class id {
+        public static final int ImageView01=0x7f08001e;
+        public static final int LinearLayout01=0x7f08001d;
         public static final int accountIcon=0x7f080008;
         public static final int accountSpinner=0x7f08000c;
         public static final int blocks_now=0x7f080007;
         public static final int blocks_ruler=0x7f080006;
-        public static final int btnRead=0x7f08001e;
-        public static final int btnWrite=0x7f08001d;
+        public static final int btnRead=0x7f080023;
+        public static final int btnWrite=0x7f080022;
         public static final int btnabout=0x7f080017;
         public static final int btnaddcontact=0x7f08000d;
         public static final int btnaddcontact_blackwhite=0x7f08000e;
@@ -118,7 +120,9 @@ public final class R {
         public static final int dialog_moderator=0x7f080004;
         public static final int dialog_wave=0x7f080005;
         public static final int firstAccountLine=0x7f08000a;
+        public static final int groupheader=0x7f08001c;
         public static final int imgTop=0x7f080013;
+        public static final int listView=0x7f080020;
         public static final int mainlayout=0x7f08001a;
         public static final int mapview=0x7f08001b;
         public static final int now_playing_loading=0x7f080018;
@@ -126,10 +130,11 @@ public final class R {
         public static final int title_container=0x7f080000;
         public static final int title_logo=0x7f080001;
         public static final int title_text=0x7f080002;
+        public static final int tvGroup=0x7f08001f;
         public static final int txtDate=0x7f080019;
         public static final int txtDescription=0x7f080012;
         public static final int txtName=0x7f08000b;
-        public static final int webview=0x7f08001c;
+        public static final int webview=0x7f080021;
     }
     public static final class layout {
         public static final int account_entry=0x7f030000;
@@ -138,34 +143,37 @@ public final class R {
         public static final int map=0x7f030003;
         public static final int searchresultrow=0x7f030004;
         public static final int searchresults=0x7f030005;
-        public static final int speakerview=0x7f030006;
-        public static final int webview=0x7f030007;
+        public static final int sessiongroup=0x7f030006;
+        public static final int sessions=0x7f030007;
+        public static final int speakerview=0x7f030008;
+        public static final int webview=0x7f030009;
     }
     public static final class string {
         /** Preferences
          */
-        public static final int EventVersionPreference=0x7f040019;
-        public static final int EventVersionPreference_EventVersion=0x7f04001a;
-        public static final int EventVersionPreference_Speakers=0x7f04001b;
-        public static final int WebServiceAddress=0x7f040017;
+        public static final int EventVersionPreference=0x7f04001c;
+        public static final int EventVersionPreference_EventVersion=0x7f04001d;
+        public static final int EventVersionPreference_Speakers=0x7f04001e;
+        public static final int WebServiceAddress=0x7f04001a;
         /** WebServices
          */
-        public static final int WebService_GetEventVersion=0x7f040018;
+        public static final int WebService_GetEventVersion=0x7f04001b;
         public static final int app_name=0x7f04000b;
-        public static final int attendeefacebook=0x7f04001c;
-        public static final int attendeetwitter=0x7f04001d;
+        public static final int attendeefacebook=0x7f04001f;
+        public static final int attendeetwitter=0x7f040020;
         public static final int cancel_button=0x7f040000;
-        public static final int create_image_note_button=0x7f04001f;
-        public static final int create_location_note_button=0x7f040021;
-        public static final int create_quick_note_button=0x7f040020;
-        public static final int create_simple_note_button=0x7f04001e;
-        public static final int cursor_positioning_button=0x7f040023;
+        public static final int create_image_note_button=0x7f040022;
+        public static final int create_location_note_button=0x7f040024;
+        public static final int create_quick_note_button=0x7f040023;
+        public static final int create_simple_note_button=0x7f040021;
+        public static final int cursor_positioning_button=0x7f040026;
         public static final int email_address=0x7f040012;
         public static final int email_subject=0x7f040011;
         public static final int error_dialog_title=0x7f040003;
-        public static final int error_loading_message=0x7f040016;
-        public static final int error_loading_title=0x7f040015;
+        public static final int error_loading_message=0x7f040019;
+        public static final int error_loading_title=0x7f040018;
         public static final int eventId=0x7f040013;
+        public static final int eventSessions=0x7f040015;
         public static final int event_address=0x7f040014;
         public static final int eventdate=0x7f04000c;
         public static final int facebookurl=0x7f04000e;
@@ -177,12 +185,14 @@ public final class R {
         public static final int notetag=0x7f04000d;
         public static final int ok_button=0x7f040002;
         public static final int registerurl=0x7f040010;
-        public static final int toast_quick_note=0x7f040024;
+        public static final int subEventId=0x7f040016;
+        public static final int subEventSessions=0x7f040017;
+        public static final int toast_quick_note=0x7f040027;
         public static final int twitterurl=0x7f04000f;
         public static final int upgrade_button=0x7f040001;
         public static final int upgrade_notes_message=0x7f040009;
         public static final int upgrade_notes_title=0x7f040008;
-        public static final int view_notes_button=0x7f040022;
+        public static final int view_notes_button=0x7f040025;
     }
     public static final class style {
         public static final int ActionButton=0x7f090018;

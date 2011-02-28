@@ -28,7 +28,6 @@ import java.util.ArrayList;
 
 import com.catchnotes.tedapp.AboutActivity;
 import com.catchnotes.tedapp.ScheduleActivity;
-import com.catchnotes.tedapp.SpeakerResultActivity;
 import com.catchnotes.tedapp.R;
 import com.tedx.utility.IntentIntegrator;
 
@@ -70,7 +69,7 @@ public class Main extends Activity {
     
     //Loading Speaker List
     public void btnspeakers_Click(View target){
-    	Intent intent = new Intent(this, SpeakerResultActivity.class);
+    	Intent intent = new Intent(this, SpeakerResultTabActivity.class);
 		this.startActivity(intent);
     }
     
@@ -134,13 +133,13 @@ public class Main extends Activity {
     	Intent intent = new Intent(this, EventMapActivity.class);
 
 	    ArrayList<String> Latitude = new ArrayList<String>();
-	    Latitude.add("37.787835");
+	    Latitude.add("");
 	    ArrayList<String> Longitude = new ArrayList<String>();
-	    Longitude.add("-122.397067");
+	    Longitude.add("-");
 	    ArrayList<String> Name = new ArrayList<String>();
-	    Name.add("Temple Nightclub");
+	    Name.add("");
 	    ArrayList<String> Description = new ArrayList<String>();
-	    Description.add("540 Howard Street, San Francisco, California");
+	    Description.add("");
 	    
 	    Bundle locationBundle = new Bundle();
 	    locationBundle.putStringArrayList("Latitude", Latitude);
