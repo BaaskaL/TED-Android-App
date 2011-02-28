@@ -6,22 +6,20 @@ import android.os.Bundle;
 import android.view.Window;
 import android.widget.TabHost;
 
-public class SpeakerResultTabActivity extends TabActivity{
+public class SubEventSpeakerResultTabActivity extends TabActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
     	requestWindowFeature(Window.FEATURE_NO_TITLE);
-
     	super.onCreate(savedInstanceState);
 
         final TabHost tabHost = getTabHost();
 
-
         tabHost.addTab(tabHost.newTabSpec("Speakers")
                 .setIndicator("Speakers", getResources().getDrawable(R.drawable.ic_tab_speakers))
-                .setContent(new Intent(this, SpeakerResultActivity.class)));
+                .setContent(new Intent(this, SubEventSpeakerResultActivity.class)));
 
         tabHost.addTab(tabHost.newTabSpec("Sessions")
                 .setIndicator("Sessions", getResources().getDrawable(R.drawable.ic_tab_sessions))
-                .setContent(new Intent(this, SessionResultActivity.class)));
+                .setContent(new Intent(this, SubEventSessionResultActivity.class)));
     }
 }

@@ -24,7 +24,7 @@
 
 package com.tedx.objects;
 
-public final class SnapticIntent {
+public final class CatchIntent {
 	// Intent actions
 	public static final String ACTION_ADD = "com.snaptic.intent.action.ADD";
 	public static final String ACTION_VIEW = "com.snaptic.intent.action.VIEW";

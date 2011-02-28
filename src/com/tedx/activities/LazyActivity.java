@@ -72,7 +72,7 @@ public abstract class LazyActivity extends Activity implements OnItemClickListen
 	protected List<HashMap<String, String>> mAdapterData = new ArrayList<HashMap<String, String>>();
 	protected String[] mFrom;
 	protected int[] mTo;
-	private boolean mMultipage = true;
+	private boolean mMultipage = false;
 
 	protected LoadTask mLoadTask;
 	protected LoadQueue mScheduler = new LoadQueue();

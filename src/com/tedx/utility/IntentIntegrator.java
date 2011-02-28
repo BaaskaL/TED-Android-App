@@ -25,7 +25,7 @@
 package com.tedx.utility;
 
 import com.catchnotes.tedapp.R;
-import com.tedx.objects.SnapticIntent;
+import com.tedx.objects.CatchIntent;
 
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
@@ -81,7 +81,7 @@ public class IntentIntegrator {
 		Intent intent = new Intent();
 		
 		// This action signifies you want to add a new note to the user's notebook
-		intent.setAction(SnapticIntent.ACTION_ADD);
+		intent.setAction(CatchIntent.ACTION_ADD);
 		
 		// Mandatory. This will be the content of the note. The object should be
 		// a String.
@@ -91,12 +91,12 @@ public class IntentIntegrator {
 		// for this note. Don't use the example below; please arrange with the
 		// Snaptic development team for the string you will use to identify your
 		// app. The object should be a String.
-		intent.putExtra(SnapticIntent.EXTRA_SOURCE, "Snaptic Intent Test Utility");
+		intent.putExtra(CatchIntent.EXTRA_SOURCE, "TED2011");
 		
 		// Optional; if EXTRA_TITLE is supplied it will appear in the
 		// titlebar of the note editor activity in 3banana. The object should be
 		// a String.
-		intent.putExtra(Intent.EXTRA_TITLE, "Intent Testing");
+		intent.putExtra(Intent.EXTRA_TITLE, "TED2011");
 
 		// Optional: include an image. Image URIs should point to JPEG images,
 		// accessible to external packages (i.e., don't point to content private
@@ -107,13 +107,13 @@ public class IntentIntegrator {
 		
 		// Optional: include a location. The object should be a Location.
 		if (location != null) {
-			intent.putExtra(SnapticIntent.EXTRA_LOCATION, location);		
+			intent.putExtra(CatchIntent.EXTRA_LOCATION, location);		
 		}
 		
 		// Optional: specify a cursor position for the editor. The type should
 		// be an int.
 		if (cursorPosition >= 0) {
-			intent.putExtra(SnapticIntent.EXTRA_CURSOR_POSITION, cursorPosition);
+			intent.putExtra(CatchIntent.EXTRA_CURSOR_POSITION, cursorPosition);
 		}
 		
 		// Optional: specify autosave. Intents with autosave set will send the
@@ -121,7 +121,7 @@ public class IntentIntegrator {
 		// activity. You may want to provide feedback to your users that the
 		// action completed. The type should be a boolean.
 		if (autoSave) {
-			intent.putExtra(SnapticIntent.EXTRA_AUTOSAVE, true);
+			intent.putExtra(CatchIntent.EXTRA_AUTOSAVE, true);
 		}
 
 		// Start the Intent
@@ -141,9 +141,10 @@ public class IntentIntegrator {
 		
 		// Create the Intent		
 		Intent intent = new Intent();
-		intent.setAction(SnapticIntent.ACTION_VIEW);
-		intent.putExtra(SnapticIntent.EXTRA_VIEW_FILTER, tag);
-
+		intent.setAction(CatchIntent.ACTION_VIEW);
+		intent.putExtra(CatchIntent.EXTRA_VIEW_FILTER, tag);
+		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		
 		// Start the Intent
 		startNotesIntent(intent);
 	}	
@@ -226,7 +227,7 @@ public class IntentIntegrator {
 		try {
 			_context.startActivity(intent);
 			
-			if (intent.hasExtra(SnapticIntent.EXTRA_AUTOSAVE)) {
+			if (intent.hasExtra(CatchIntent.EXTRA_AUTOSAVE)) {
 				// Pop up a mesage to let your users know when a quick note has
 				// been added.
 	    		Toast.makeText(_context,

@@ -25,7 +25,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">TED2011</string>
     <string name="eventdate">February 28 - March 4, 2011</string>
-	<string name="notetag">"TED2011 \n\n#ted2011</string>
+	<string name="notetag">"\n\n#TED2011</string>
     <string name="facebookurl">http://touch.facebook.com/#/ted</string>
 	<string name="twitterurl">http://www.twitter.com/tedtalks</string>
     <string name="registerurl"></string>

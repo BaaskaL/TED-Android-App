@@ -133,13 +133,13 @@ public class Main extends Activity {
     	Intent intent = new Intent(this, EventMapActivity.class);
 
 	    ArrayList<String> Latitude = new ArrayList<String>();
-	    Latitude.add("");
+	    Latitude.add("33.765181");
 	    ArrayList<String> Longitude = new ArrayList<String>();
-	    Longitude.add("-");
+	    Longitude.add("-118.190553");
 	    ArrayList<String> Name = new ArrayList<String>();
-	    Name.add("");
+	    Name.add("Long Beach Convention and Entertainment Center");
 	    ArrayList<String> Description = new ArrayList<String>();
-	    Description.add("");
+	    Description.add("300 E. Ocean Boulevard Long Beach, CA 90802");
 	    
 	    Bundle locationBundle = new Bundle();
 	    locationBundle.putStringArrayList("Latitude", Latitude);
@@ -183,7 +183,8 @@ public class Main extends Activity {
     //Loading up the barcode scanner
     public void btnuniversity_Click(View target)
     {
-    	
+    	Intent intent = new Intent(this, SubEventSpeakerResultTabActivity.class);
+		this.startActivity(intent);
     }
     
     @Override

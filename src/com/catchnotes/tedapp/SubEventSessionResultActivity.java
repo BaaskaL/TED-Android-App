@@ -1,5 +1,6 @@
 package com.catchnotes.tedapp;
 
+
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -8,6 +9,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
@@ -16,20 +18,25 @@ import android.widget.AdapterView;
 import com.catchnotes.tedapp.R;
 import com.tedx.logics.SearchResultLogic;
 import com.tedx.objects.SearchResult;
-import com.tedx.activities.LazyActivity;
+import com.tedx.activities.GroupLazyActivity;
 
-public class SubEventSpeakerResultActivity extends LazyActivity{
+public class SubEventSessionResultActivity extends GroupLazyActivity{
+	private int mEventId;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
     	requestWindowFeature(Window.FEATURE_NO_TITLE);
+    	mEventId = Integer.valueOf(this.getResources().getString(R.string.subEventId));
+    	
 		mFrom = new String[] {
+				SearchResult.SESSIONNAME,
 				SearchResult.NAME,
 				SearchResult.TITLE,
 				SearchResult.PHOTOURL
 		};
 
 		mTo = new int[] {
+				R.id.groupheader,
 				android.R.id.text1,
 				android.R.id.text2,
 				android.R.id.icon
@@ -56,25 +63,24 @@ public class SubEventSpeakerResultActivity extends LazyActivity{
 	protected static class LoadSearchResultTask extends LoadTask {
 		@Override
 		protected Boolean doInBackground(String... params) {
-			SubEventSpeakerResultActivity activity = (SubEventSpeakerResultActivity) super.activity;
+			SubEventSessionResultActivity activity = (SubEventSessionResultActivity) super.activity;
 
-			int EventId = Integer.valueOf(activity.getResources().getString(R.string.subEventId));
-			int ServerEventVersion = SearchResultLogic.getSearchResultVersionByEventId(activity.getResources(), EventId);
+			int ServerEventVersion = SearchResultLogic.getSearchResultVersionByEventId(activity.getResources(), activity.mEventId);
 			JSONArray speakers;
 
 			//check point to load from cache or web
 			if(	ServerEventVersion != 0 &&
-				SearchResultLogic.getCurrentVersionByEventIdFromCache(activity, EventId) != ServerEventVersion)
+				SearchResultLogic.getCurrentVersionByEventIdFromCache(activity, activity.mEventId) != ServerEventVersion)
 			{
 				String Url = 
 					com.tedx.logics.SearchResultLogic.getSearchResultsByCriteriaURL(
-							activity.getResources(), EventId, activity.mPage);
+							activity.getResources(), activity.mEventId, activity.mPage);
 				
 				//Set the version
-				SearchResultLogic.setCurrentVersionByEventId(activity, EventId, ServerEventVersion);
+				SearchResultLogic.setCurrentVersionByEventId(activity, activity.mEventId, ServerEventVersion);
 				
 				try {
-					speakers = SearchResultLogic.loadSpeakerSearchResultsFromWeb(activity, Url, EventId);
+					speakers = SearchResultLogic.loadSpeakerSearchResultsFromWeb(activity, Url, activity.mEventId);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					speakers = null;
@@ -86,7 +92,7 @@ public class SubEventSpeakerResultActivity extends LazyActivity{
 			else
 			{
 				try {
-					speakers = SearchResultLogic.loadSpeakerSearchResultsFromCache(activity, EventId);
+					speakers = SearchResultLogic.loadSpeakerSearchResultsFromCache(activity, activity.mEventId);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					speakers = null;
@@ -94,6 +100,11 @@ public class SubEventSpeakerResultActivity extends LazyActivity{
 					// TODO Auto-generated catch block
 					speakers = null;
 				}
+			}
+			
+			if(speakers != null)
+			{
+				speakers = SortSpeakersBySessionId(speakers);
 			}
 			return loadSpeakerResultsByCollection(speakers);	
 
@@ -106,6 +117,36 @@ public class SubEventSpeakerResultActivity extends LazyActivity{
 				activity.showDialog(DIALOG_ERROR_LOADING);
 			}
 		}
+	}
+	
+	/**
+	 * Method for sorting speakers by SessionId
+	 * This method is not efficient at all and will be updated in the future
+	 * @param speakers
+	 */
+	private static JSONArray SortSpeakersBySessionId(JSONArray speakers)
+	{
+		JSONArray ret = speakers;
+		
+	    int n = speakers.length();
+	    for (int pass=1; pass < n; pass++) {  // count how many times
+	        // This next loop becomes shorter and shorter
+	        for (int i=0; i < n-pass; i++) {
+	            try {
+					if (ret.getJSONObject(i).getInt("Session") > ret.getJSONObject(i + 1).getInt("Session")) {
+					    // exchange elements
+						JSONObject temp = ret.getJSONObject(i);
+						ret.put(i, ret.getJSONObject(i + 1));
+						ret.put(i + 1, temp);
+					}
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	        }
+	    }
+	    
+	    return ret;
 	}
 
 	@Override
@@ -124,7 +165,20 @@ public class SubEventSpeakerResultActivity extends LazyActivity{
 		SearchResults.put(SearchResult.DESCRIPTION, String.valueOf(data.getString("Description")));
 		SearchResults.put(SearchResult.WEBSITE, String.valueOf(data.getString("WebSite")));
 		SearchResults.put(SearchResult.SESSION, String.valueOf(data.getInt("Session")));
+		SearchResults.put(SearchResult.EVENTID, String.valueOf(data.getInt("EventId")));
 
+		String SessionName = null;
+		try {
+			SessionName = SearchResultLogic.getSessionNameBySession(this, mEventId, data.getInt("Session"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		Log.e("SessionName", SessionName);
+		
+		SearchResults.put(SearchResult.SESSIONNAME, SessionName);
+		
 		return SearchResults;
 	}
 	
