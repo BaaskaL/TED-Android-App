@@ -119,8 +119,7 @@ public class SpeakerActivity extends Activity{
     //Reading the Notes
     public void btnRead_Click(View target)
     {
-    	String notetag = this.getString(R.string.notetag);
-		_notesIntent.viewNotes(notetag);
+		_notesIntent.viewNotes("TED2011");
     }
     
     //Back Button
