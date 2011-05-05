@@ -58,7 +58,6 @@ public class Main extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         _notesIntent = new IntentIntegrator(this);
-
     }
     
     //Loading About

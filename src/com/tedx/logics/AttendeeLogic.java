@@ -24,57 +24,18 @@
 
 package com.tedx.logics;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.content.res.Resources;
 import android.os.Bundle;
 
-import com.catchnotes.tedapp.R;
-import com.tedx.webservices.WebServices;
-
 public class AttendeeLogic {
+	/**
+	 * Deprecated
+	 * @param res
+	 * @param EventUniqueId
+	 * @return
+	 */
 	public static Bundle GetCurrentDancers(Resources res, String EventUniqueId)
 	{
-		String Action = "GetAttendeeByUniqueId";
-		
-		JSONObject requestJSONParameters = new JSONObject();
-		try {
-			requestJSONParameters.put("EventId", Integer.valueOf(res.getString(R.string.eventId)));
-			requestJSONParameters.put("EventUniqueId", EventUniqueId);
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			return null;
-		}		
-		
-		String URL = res.getString(R.string.WebServiceAddress) + Action;
-		
-		JSONObject responseJSON = WebServices.SendHttpPost(URL, requestJSONParameters);
-		
-		if(responseJSON != null)
-		{
-			try {
-				if(responseJSON.getBoolean("IsSuccessful"))
-				{
-					Bundle ret = new Bundle();
-					ret.putInt("AttendeeId", responseJSON.getInt("AttendeeId"));
-					ret.putString("FirstName", responseJSON.getString("FirstName"));
-					ret.putString("LastName", responseJSON.getString("LastName"));
-					ret.putString("ContactNumber", responseJSON.getString("ContactNumber"));
-					ret.putString("Website", responseJSON.getString("Website"));
-					ret.putString("Email", responseJSON.getString("Email"));
-					ret.putString("Facebook", responseJSON.getString("Facebook"));
-					ret.putString("Twitter", responseJSON.getString("Twitter"));
-					ret.putString("Description", responseJSON.getString("Description"));
-
-					return ret;
-				}
-				else return null;
-				} catch (JSONException e) {
-				// TODO Auto-generated catch block
-					return null;
-			}
-		}
-		else return null;
+		return null;
 	}
 }

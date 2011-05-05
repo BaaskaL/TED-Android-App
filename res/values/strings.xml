@@ -35,22 +35,27 @@
     <string name="event_address">300 E. Ocean Boulevard Long Beach, CA 90802</string>
 	<string name="eventSessions">12</string>
     
-    
     <string name="subEventId">18</string>
     <string name="subEventSessions">3</string>
     
 	<string name="error_loading_title">Network issue</string>
 	<string name="error_loading_message">There was an issue contacting the server. Please try again later.</string>  
-    
-	<string name="WebServiceAddress">http://www.tedxapps.com/wsdl/tedxservice.svc/</string>
 
-	<!--WebServices-->
-	<string name="WebService_GetEventVersion">GetEventVersion</string>
-    
+	<!--Google Fusion Url-->
+	<string name="GetEventSpeakers">https://www.google.com/fusiontables/api/query?sql=SELECT+SpeakerId%2C+EventId%2C+SpeakerOrder%2C+FirstName%2C+LastName%2C+Title%2C+Topic%2C+Facebook%2C+Email%2C+Website%2C+Twitter%2C+Description%2C+PhotoUrl%2C+ScheduleDate%2C+Session+FROM+561408+WHERE+EventId%3D{eventid}&amp;jsonCallback=</string>
+	<string name="GetEventSpeakersCallBack">speakers</string>
+	<string name="GetEventSessions">https://www.google.com/fusiontables/api/query?sql=SELECT+SessionId%2C+SessionTime%2C+SessionName+FROM+560983+WHERE+EventId%3D{eventid}&amp;jsonCallback=</string>
+	<string name="GetEventSessionsCallBack">sessions</string>
+	<string name="GetEventVersion">https://www.google.com/fusiontables/api/query?sql=SELECT+EventVersion+FROM+561503+WHERE+EventId%3D{eventid}&amp;jsonCallback=</string>
+	<string name="GetEventVersionCallBack">version</string>
+	<string name="GetEventAbout">https://www.google.com/fusiontables/api/query?sql=SELECT+About+FROM+561503+WHERE+EventId%3D{eventid}&amp;jsonCallback=</string>
+	<string name="GetEventAboutCallBack">about</string>
     
 	<!--Preferences-->
     <string name="EventVersionPreference">EventVersionPreference</string>
     <string name="EventVersionPreference_EventVersion">EventVersionPreference_EventVersion</string>
+    <string name="EventAboutPreference">EventAboutPreference</string>   
+    <string name="EventAboutPreference_EventAbout">EventVersionPreference_EventAbout</string>
 	<string name="EventVersionPreference_Speakers">EventVersionPreference_Speakers</string>
 	<string name="EventVersionPreference_Sessions">EventVersionPreference_Sessions</string>
 	

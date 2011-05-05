@@ -1,7 +1,7 @@
 /*
  * The MIT License
 
- * Copyright (c) 2010 Peter Ma
+ * Copyright (c) 2010 Peter Ma Modified Catch.com on 5/5/2011
 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -25,38 +25,55 @@
 package com.catchnotes.tedapp;
 
 import com.catchnotes.tedapp.R;
+import com.tedx.logics.SearchResultLogic;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.Window;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 public class AboutActivity extends Activity{
 	public WebView mWebView;
+	private int mEventId;
+	public String mContent = "";
 
     protected void onCreate(Bundle savedInstanceState) {
     	requestWindowFeature(Window.FEATURE_NO_TITLE);
-        super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState);        
+    	mEventId = Integer.valueOf(this.getResources().getString(R.string.eventId));
+
         setContentView(R.layout.webview);
 
         mWebView = (WebView) findViewById(R.id.webview);
 		String url = "file:///android_asset/about/index.html";
 		
+		int ServerEventVersion = SearchResultLogic.getSearchResultVersionByEventId(this.getResources(), mEventId);
+		
+		//check point to load from cache or web
+		if(	ServerEventVersion != 0 &&
+			SearchResultLogic.getCurrentVersionByEventIdFromCache(this, mEventId) != ServerEventVersion &&
+			SearchResultLogic.getEventAboutByEventIdFromCache(this, mEventId) == "")
+		{
+			mContent = SearchResultLogic.getEventAboutByEventId(this, mEventId);
+		}
+		else
+		{
+			mContent = SearchResultLogic.getEventAboutByEventIdFromCache(this, mEventId);
+		}
+		
 		mWebView.loadUrl(url);
+		
+		mWebView.setWebViewClient(new WebViewClient(){
+			public void onPageFinished (WebView view, String url)
+			{
+				mWebView.loadUrl("javascript:setContent(" + mContent + ")");
+			}
+			
+		});
     }
-    
-    public void onResume()
-	{	
-    	super.onResume();
-        setContentView(R.layout.webview);
 
-        mWebView = (WebView) findViewById(R.id.webview);            
-		String url = "file:///android_asset/about/index.html";
-
-		mWebView.loadUrl(url);
-	}
-    
     //Back Button
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event)  {

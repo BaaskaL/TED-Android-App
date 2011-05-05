@@ -43,10 +43,13 @@ import com.tedx.objects.SearchResult;
 import com.tedx.activities.LazyActivity;
 
 public class SpeakerResultActivity extends LazyActivity{
-	
+	private int mEventId;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
     	requestWindowFeature(Window.FEATURE_NO_TITLE);
+    	mEventId = Integer.valueOf(this.getResources().getString(R.string.eventId));
+
 		mFrom = new String[] {
 				SearchResult.NAME,
 				SearchResult.TITLE,
@@ -82,35 +85,30 @@ public class SpeakerResultActivity extends LazyActivity{
 		protected Boolean doInBackground(String... params) {
 			SpeakerResultActivity activity = (SpeakerResultActivity) super.activity;
 
-			int EventId = Integer.valueOf(activity.getResources().getString(R.string.eventId));
-			int ServerEventVersion = SearchResultLogic.getSearchResultVersionByEventId(activity.getResources(), EventId);
-			JSONArray speakers;
+			int ServerEventVersion = SearchResultLogic.getSearchResultVersionByEventId(activity.getResources(), activity.mEventId);
+			JSONArray speakers = null;
 
 			//check point to load from cache or web
 			if(	ServerEventVersion != 0 &&
-				SearchResultLogic.getCurrentVersionByEventIdFromCache(activity, EventId) != ServerEventVersion)
+				SearchResultLogic.getCurrentVersionByEventIdFromCache(activity, activity.mEventId) != ServerEventVersion)
 			{
-				String Url = 
-					com.tedx.logics.SearchResultLogic.getSearchResultsByCriteriaURL(
-							activity.getResources(), EventId, activity.mPage);
-				
 				//Set the version
-				SearchResultLogic.setCurrentVersionByEventId(activity, EventId, ServerEventVersion);
+				SearchResultLogic.setCurrentVersionByEventId(activity, activity.mEventId, ServerEventVersion);
 				
 				try {
-					speakers = SearchResultLogic.loadSpeakerSearchResultsFromWeb(activity, Url, EventId);
+					speakers = SearchResultLogic.loadSpeakerSearchResultsFromWeb(activity, activity.mEventId);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					speakers = null;
 				} catch (JSONException e) {
 					// TODO Auto-generated catch block
-					speakers = null;
+					e.printStackTrace();
 				}
 			}
 			else
 			{
 				try {
-					speakers = SearchResultLogic.loadSpeakerSearchResultsFromCache(activity, EventId);
+					speakers = SearchResultLogic.loadSpeakerSearchResultsFromCache(activity, activity.mEventId);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					speakers = null;
@@ -146,7 +144,7 @@ public class SpeakerResultActivity extends LazyActivity{
 		SearchResults.put(SearchResult.EMAIL, String.valueOf(data.getString("Email")));
 		SearchResults.put(SearchResult.TOPIC, String.valueOf(data.getString("Topic")));
 		SearchResults.put(SearchResult.DESCRIPTION, String.valueOf(data.getString("Description")));
-		SearchResults.put(SearchResult.WEBSITE, String.valueOf(data.getString("WebSite")));
+		SearchResults.put(SearchResult.WEBSITE, String.valueOf(data.getString("Website")));
 		SearchResults.put(SearchResult.SESSION, String.valueOf(data.getInt("Session")));
 
 		return SearchResults;

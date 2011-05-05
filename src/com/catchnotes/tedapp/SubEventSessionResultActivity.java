@@ -72,15 +72,11 @@ public class SubEventSessionResultActivity extends GroupLazyActivity{
 			if(	ServerEventVersion != 0 &&
 				SearchResultLogic.getCurrentVersionByEventIdFromCache(activity, activity.mEventId) != ServerEventVersion)
 			{
-				String Url = 
-					com.tedx.logics.SearchResultLogic.getSearchResultsByCriteriaURL(
-							activity.getResources(), activity.mEventId, activity.mPage);
-				
 				//Set the version
 				SearchResultLogic.setCurrentVersionByEventId(activity, activity.mEventId, ServerEventVersion);
 				
 				try {
-					speakers = SearchResultLogic.loadSpeakerSearchResultsFromWeb(activity, Url, activity.mEventId);
+					speakers = SearchResultLogic.loadSpeakerSearchResultsFromWeb(activity, activity.mEventId);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					speakers = null;
@@ -163,7 +159,7 @@ public class SubEventSessionResultActivity extends GroupLazyActivity{
 		SearchResults.put(SearchResult.EMAIL, String.valueOf(data.getString("Email")));
 		SearchResults.put(SearchResult.TOPIC, String.valueOf(data.getString("Topic")));
 		SearchResults.put(SearchResult.DESCRIPTION, String.valueOf(data.getString("Description")));
-		SearchResults.put(SearchResult.WEBSITE, String.valueOf(data.getString("WebSite")));
+		SearchResults.put(SearchResult.WEBSITE, String.valueOf(data.getString("Website")));
 		SearchResults.put(SearchResult.SESSION, String.valueOf(data.getInt("Session")));
 		SearchResults.put(SearchResult.EVENTID, String.valueOf(data.getInt("EventId")));
 
