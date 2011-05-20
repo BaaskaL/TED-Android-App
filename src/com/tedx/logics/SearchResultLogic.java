@@ -35,7 +35,7 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.content.res.Resources.NotFoundException;
 
-import com.catchnotes.testapp.R;
+import com.catchnotes.tedapp.R;
 import com.tedx.utility.FusionTableReader;
 
 

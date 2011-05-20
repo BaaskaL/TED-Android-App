@@ -28,7 +28,7 @@ import java.util.List;
 import java.util.Map;
 
 
-import com.catchnotes.testapp.R;
+import com.catchnotes.tedapp.R;
 import com.tedx.activities.LazyActivity;
 import com.tedx.helpers.Common;
 import com.tedx.utility.RemoteImageView;
