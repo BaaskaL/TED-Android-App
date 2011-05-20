@@ -23,7 +23,7 @@
 	THE SOFTWARE.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="com.catchnotes.tedapp"
+      package="com.catchnotes.testapp"
       android:installLocation="auto"
       android:versionCode="1"
 	>
@@ -85,7 +85,7 @@
         			android:theme="@android:style/Theme.Light">        			
         </activity>
         
-        <activity	android:name=".SubEventSpeakerResultTabActivity"
+        <activity	android:name="com.catchnotes.testapp.SubEventSpeakerResultTabActivity"
         			android:screenOrientation="portrait"
         			android:theme="@android:style/Theme.Light">        			
         </activity>

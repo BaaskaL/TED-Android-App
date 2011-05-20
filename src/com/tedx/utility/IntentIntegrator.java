@@ -24,7 +24,7 @@
 
 package com.tedx.utility;
 
-import com.catchnotes.tedapp.R;
+import com.catchnotes.testapp.R;
 import com.tedx.objects.CatchIntent;
 
 import android.app.AlertDialog;

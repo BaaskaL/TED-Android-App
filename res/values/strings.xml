@@ -23,15 +23,13 @@
 	THE SOFTWARE.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name">TED2011</string>
-    <string name="eventdate">February 28 - March 4, 2011</string>
+    <string name="app_name">Test Event</string>
 	<string name="notetag">"\n\n#TED2011</string>
     <string name="facebookurl">http://touch.facebook.com/#/ted</string>
 	<string name="twitterurl">http://www.twitter.com/tedtalks</string>
-    <string name="registerurl"></string>
     <string name="email_subject">Question about TED2011 App</string>
     <string name="email_address">peter@catch.com</string>
-    <string name="eventId">19</string>
+    <string name="eventId">20</string>
     <string name="event_address">300 E. Ocean Boulevard Long Beach, CA 90802</string>
 	<string name="eventSessions">12</string>
     
@@ -65,6 +63,7 @@
     <string name="attendeefacebook">http://touch.facebook.com/</string>
     <string name="attendeetwitter">http://www.twitter.com/</string>
     
+    <string name="poweredby">Powered By Catch.com</string>
 	<string name="create_simple_note_button">Create a Simple Note</string>
 	<string name="create_image_note_button">Create a Note with Image</string>
 	<string name="create_quick_note_button">Add a Quick Note</string>

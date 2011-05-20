@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.catchnotes.tedapp.R;
+import com.catchnotes.testapp.R;
 import com.tedx.activities.GroupLazyActivity;
 import com.tedx.helpers.Common;
 import com.tedx.objects.SearchResult;

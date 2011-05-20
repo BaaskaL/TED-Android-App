@@ -15,7 +15,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.catchnotes.tedapp.R;
+import com.catchnotes.testapp.R;
 import com.tedx.adapters.GroupLazyAdapter;
 import com.tedx.helpers.Common;
 
