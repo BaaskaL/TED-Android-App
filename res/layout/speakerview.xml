@@ -50,7 +50,7 @@
 	   	<Button
 		    android:id="@+id/btnRead"
 	    	android:onClick="btnRead_Click"
-	    	android:text="Read Notes"
+	    	android:text="View Notes"
 			style="@style/MainTheme.ActionButton"
 	   	/>
 	</LinearLayout>
