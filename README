@@ -1,23 +1,3 @@
-The MIT License
+iPhone Conference App GuideBy Peter Ma, Catch.comIntroductionCatch.com makes it easy to capture your ideas and experiences into activity streams in those areas where you want to learn and grow. Capturing notes during a conference is an ideal use case for Catch.After the release of several successful apps for TED and TEDx conferences that integrated the Catch functionality, it was decided to open source the app and make it available to any conference organizer for free. The functionality was further improved and syncing now uses Google Fusion Table to avoid relying on private databases. Any event organizer who wants to have an iphone app for their conference can simply follow this guide. The app is open sourced under the terms of the MIT license and Apache License and can be found at https://github.com/catch/TED-Android-App. Contributions are welcome.The conference app currently supports single-track conferences. Conferences with multiple tracks are supported by having several single-track buttons on the dashboard. This portion will be improved in the future.
 
-Copyright (c) 2010 Peter Ma
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-This is a template for those who wish to create Android app for their TEDx Events.  For any features and functionalities please feel free to contact us
+please read Guide.pdf to see further instructions
