@@ -16,6 +16,7 @@ import android.view.Window;
 import android.widget.AdapterView;
 
 import com.catchnotes.tedapp.R;
+import com.tedx.logics.ArchiveLogic;
 import com.tedx.logics.SearchResultLogic;
 import com.tedx.objects.SearchResult;
 import com.tedx.activities.GroupLazyActivity;
@@ -26,7 +27,7 @@ public class SubEventSessionResultActivity extends GroupLazyActivity{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
     	requestWindowFeature(Window.FEATURE_NO_TITLE);
-    	mEventId = Integer.valueOf(this.getResources().getString(R.string.subEventId));
+    	mEventId = ArchiveLogic.GetSubEventId(getApplicationContext());
     	
 		mFrom = new String[] {
 				SearchResult.SESSIONNAME,

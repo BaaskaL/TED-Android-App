@@ -23,11 +23,11 @@
 	THE SOFTWARE.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name">Test Event</string>
-	<string name="notetag">"\n\n#TED2011</string>
+    <string name="app_name">TEDGlobal</string>
+	<string name="notetag">"\n\n#TEDGlobal2011</string>
     <string name="facebookurl">http://touch.facebook.com/#/ted</string>
 	<string name="twitterurl">http://www.twitter.com/tedtalks</string>
-    <string name="email_subject">Question about TED2011 App</string>
+    <string name="email_subject">Question about TEDConference App</string>
     <string name="email_address">peter@catch.com</string>
     <string name="eventId">20</string>
     <string name="event_address">300 E. Ocean Boulevard Long Beach, CA 90802</string>
@@ -56,6 +56,8 @@
     <string name="EventAboutPreference_EventAbout">EventVersionPreference_EventAbout</string>
 	<string name="EventVersionPreference_Speakers">EventVersionPreference_Speakers</string>
 	<string name="EventVersionPreference_Sessions">EventVersionPreference_Sessions</string>
+	
+	<string name="EventSelectorPreference">EventSelectorPreference</string>
 	
 	
 

@@ -29,6 +29,7 @@ import java.util.ArrayList;
 import com.catchnotes.tedapp.AboutActivity;
 import com.catchnotes.tedapp.ScheduleActivity;
 import com.catchnotes.tedapp.R;
+import com.tedx.logics.ArchiveLogic;
 import com.tedx.utility.IntentIntegrator;
 
 import android.app.Activity;
@@ -44,6 +45,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.widget.ImageView;
 
 public class Main extends Activity {
     /** Called when the activity is first created. */
@@ -51,6 +53,8 @@ public class Main extends Activity {
 	private static final int MENU_CONTACT = 1;
 	private static final int MENU_FACEBOOK = 2;
 	private static final int MENU_TWITTER = 3;
+	
+	private ImageView mImgTop;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -58,12 +62,26 @@ public class Main extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         _notesIntent = new IntentIntegrator(this);
+        mImgTop = (ImageView)findViewById(R.id.imgTop);
+        mImgTop.setImageResource(ArchiveLogic.GetLogo(this));
     }
     
+    @Override
+    public void onResume()
+    {
+        mImgTop.setImageResource(ArchiveLogic.GetLogo(this));
+    	super.onResume();
+    }
     //Loading About
     public void btnabout_Click(View target){
     	Intent intent = new Intent(this, AboutActivity.class);
 		this.startActivity(intent);
+    }
+    
+    //Loading up all the Archived Conferences
+    public void btnConferences_Click(View target){
+    	Intent intent = new Intent(this, ArchiveActivity.class);
+		this.startActivity(intent);    	
     }
     
     //Loading Speaker List
@@ -111,8 +129,7 @@ public class Main extends Activity {
     //Loading Note
     public void btnnote_Click(View target)
     {
-    	String notetag = this.getString(R.string.notetag);
-		_notesIntent.createNote(notetag);
+		_notesIntent.viewNotes(ArchiveLogic.GetEventtag(this).replace("#", ""));
     }
     
     //Loading Map
@@ -122,13 +139,13 @@ public class Main extends Activity {
     	Intent intent = new Intent(this, EventMapActivity.class);
 
 	    ArrayList<String> Latitude = new ArrayList<String>();
-	    Latitude.add("33.765181");
+	    Latitude.add(ArchiveLogic.GetVenueLatitude(this));
 	    ArrayList<String> Longitude = new ArrayList<String>();
-	    Longitude.add("-118.190553");
+	    Longitude.add(ArchiveLogic.GetVenueLongitude(this));
 	    ArrayList<String> Name = new ArrayList<String>();
-	    Name.add("Long Beach Convention and Entertainment Center");
+	    Name.add(ArchiveLogic.GetVenueName(this));
 	    ArrayList<String> Description = new ArrayList<String>();
-	    Description.add("300 E. Ocean Boulevard Long Beach, CA 90802");
+	    Description.add(ArchiveLogic.GetVenueAddress(this));
 	    
 	    Bundle locationBundle = new Bundle();
 	    locationBundle.putStringArrayList("Latitude", Latitude);

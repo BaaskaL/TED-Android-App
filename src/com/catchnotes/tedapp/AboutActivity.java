@@ -25,6 +25,7 @@
 package com.catchnotes.tedapp;
 
 import com.catchnotes.tedapp.R;
+import com.tedx.logics.ArchiveLogic;
 import com.tedx.logics.SearchResultLogic;
 
 import android.app.Activity;
@@ -42,7 +43,7 @@ public class AboutActivity extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
     	requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);        
-    	mEventId = Integer.valueOf(this.getResources().getString(R.string.eventId));
+    	mEventId = ArchiveLogic.GetEventId(getApplicationContext());
 
         setContentView(R.layout.webview);
 

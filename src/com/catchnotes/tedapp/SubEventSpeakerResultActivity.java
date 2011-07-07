@@ -14,16 +14,20 @@ import android.view.Window;
 import android.widget.AdapterView;
 
 import com.catchnotes.tedapp.R;
+import com.tedx.logics.ArchiveLogic;
 import com.tedx.logics.SearchResultLogic;
 import com.tedx.objects.SearchResult;
 import com.tedx.activities.LazyActivity;
 
 public class SubEventSpeakerResultActivity extends LazyActivity{
-	
+	private int mEventId;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
     	requestWindowFeature(Window.FEATURE_NO_TITLE);
-		mFrom = new String[] {
+    	mEventId = ArchiveLogic.GetSubEventId(getApplicationContext());
+
+    	mFrom = new String[] {
 				SearchResult.NAME,
 				SearchResult.TITLE,
 				SearchResult.PHOTOURL
@@ -58,19 +62,18 @@ public class SubEventSpeakerResultActivity extends LazyActivity{
 		protected Boolean doInBackground(String... params) {
 			SubEventSpeakerResultActivity activity = (SubEventSpeakerResultActivity) super.activity;
 
-			int EventId = Integer.valueOf(activity.getResources().getString(R.string.subEventId));
-			int ServerEventVersion = SearchResultLogic.getSearchResultVersionByEventId(activity.getResources(), EventId);
+			int ServerEventVersion = SearchResultLogic.getSearchResultVersionByEventId(activity.getResources(), activity.mEventId);
 			JSONArray speakers;
 
 			//check point to load from cache or web
 			if(	ServerEventVersion != 0 &&
-				SearchResultLogic.getCurrentVersionByEventIdFromCache(activity, EventId) != ServerEventVersion)
+				SearchResultLogic.getCurrentVersionByEventIdFromCache(activity, activity.mEventId) != ServerEventVersion)
 			{
 				//Set the version
-				SearchResultLogic.setCurrentVersionByEventId(activity, EventId, ServerEventVersion);
+				SearchResultLogic.setCurrentVersionByEventId(activity, activity.mEventId, ServerEventVersion);
 				
 				try {
-					speakers = SearchResultLogic.loadSpeakerSearchResultsFromWeb(activity, EventId);
+					speakers = SearchResultLogic.loadSpeakerSearchResultsFromWeb(activity, activity.mEventId);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					speakers = null;
@@ -82,7 +85,7 @@ public class SubEventSpeakerResultActivity extends LazyActivity{
 			else
 			{
 				try {
-					speakers = SearchResultLogic.loadSpeakerSearchResultsFromCache(activity, EventId);
+					speakers = SearchResultLogic.loadSpeakerSearchResultsFromCache(activity, activity.mEventId);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					speakers = null;

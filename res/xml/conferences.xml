@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2011 Catch.com
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+<resources>
+    <conference conferencename="TEDGlobal2011"
+    			eventid="21"
+    			subeventid="22"
+    			logo="@drawable/tedglobal2011"
+    			eventtag="\n\n#TEDGlobal2011"
+    			address="150 Morrison Street, Edinburgh, Midlothian EH3 8EE, United Kingdom"
+    			latitude="55.946484"
+    			longitude="-3.209483"
+    			venuename="Edinburgh International Conference Center"
+				/>
+				
+	<conference conferencename="TED2011"
+    			eventid="19"
+    			subeventid="18"
+    			logo="@drawable/ted2011"
+    			eventtag="\n\n#TED2011"
+    			address="300 E. Ocean Boulevard Long Beach, CA 90802"
+    			latitude="33.765181"
+    			longitude="-118.190553"
+    			venuename="Long Beach Convention and Entertainment Center"
+				/>
+</resources>

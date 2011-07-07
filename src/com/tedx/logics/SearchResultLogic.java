@@ -41,6 +41,12 @@ import com.tedx.utility.FusionTableReader;
 
 public class SearchResultLogic 
 {
+	/**
+	 * Getting Event About Page Information from Google Fusion Table by Providing EventId
+	 * @param context
+	 * @param EventId
+	 * @return
+	 */
 	public static String getEventAboutByEventId(Context context, int EventId)
 	{
 		JSONObject responseJSON = null;

@@ -29,7 +29,7 @@
 		<ImageView
   			android:id="@+id/imgTop"
   			style="@style/TitleBarLogo"
-  			android:src="@drawable/top"
+  			android:src="@drawable/tedglobal2011"
   		/>
     </LinearLayout>
     
@@ -79,11 +79,11 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1">
-            <Button android:id="@+id/btnfacebook"
+            <Button android:id="@+id/events"
                 style="@style/HomeButton"
-                android:onClick="btnfacebook_Click"
-                android:text="Facebook"
-                android:drawableTop="@drawable/facebook_button"/>
+                android:onClick="btnConferences_Click"
+                android:text="Events"
+                android:drawableTop="@drawable/events_button"/>
 			<Button android:id="@+id/btnabout"
                 style="@style/HomeButton"
                 android:onClick="btnabout_Click"

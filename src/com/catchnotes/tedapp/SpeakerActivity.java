@@ -26,6 +26,7 @@ package com.catchnotes.tedapp;
 
 import com.catchnotes.tedapp.R;
 import com.tedx.utility.IntentIntegrator;
+import com.tedx.logics.ArchiveLogic;
 import com.tedx.objects.SearchResult;
 
 import android.app.Activity;
@@ -112,14 +113,14 @@ public class SpeakerActivity extends Activity{
     							"\nTwitter: " + speaker.getString(SearchResult.TWITTER) + "\n" +
     							"\nMy Notes: " + "\n\n" + 
     							"\n________________________________\nTags:" +
-    							this.getString(R.string.notetag);
+    							ArchiveLogic.GetEventtag(this);
 		_notesIntent.createNote(speakerNote);
     }
     
     //Reading the Notes
     public void btnRead_Click(View target)
     {
-		_notesIntent.viewNotes("TED2011");
+		_notesIntent.viewNotes(ArchiveLogic.GetEventtag(this).replace("#", ""));
     }
     
     //Back Button

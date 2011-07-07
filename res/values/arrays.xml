@@ -23,9 +23,8 @@
 	THE SOFTWARE.
 -->
 <resources>
-    <string-array name="attendoptions">
-        <item>Annual Conference</item>
-        <item>Monthly Meeting</item>
-        <item>Direction (Monthly)</item>
+    <string-array name="TEDConferences">
+        <item>TEDGlobal2011</item>
+        <item>TED2011</item>
     </string-array>
 </resources>
