@@ -23,7 +23,7 @@
 	THE SOFTWARE.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name">TEDGlobal</string>
+    <string name="app_name">TEDGlobal 2011</string>
 	<string name="notetag">"\n\n#TEDGlobal2011</string>
     <string name="facebookurl">http://touch.facebook.com/#/ted</string>
 	<string name="twitterurl">http://www.twitter.com/tedtalks</string>

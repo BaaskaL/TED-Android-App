@@ -46,7 +46,7 @@
 	}
 	
 	/* Content */
-	.pages
+	#pages
 	{
 		padding:15px;
 	}
@@ -113,12 +113,12 @@
 	
 	<script langauge="javascript" type="text/javascript">
 	    function setContent(content) {
-			$('#pages').text(content);
+			$('#pages').append(content);
 		}
     </script>
 </head>
 <body>
-    <div class="pages">
+    <div id="pages">
 	</div>
 </body>
 </html>

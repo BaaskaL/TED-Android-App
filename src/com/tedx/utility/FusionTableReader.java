@@ -42,9 +42,7 @@ public class FusionTableReader {
 		String retString = Common.getContent((InputStream) request.getContent());
 		
 		retString = retString.substring(type.length() + 1, retString.length() - 1);
-		
-		Log.e("retString", retString);
-		
+				
 		JSONObject jsontable = new JSONObject();
 		
 		try {

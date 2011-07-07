@@ -81,7 +81,7 @@
             android:layout_weight="1">
             <Button android:id="@+id/events"
                 style="@style/HomeButton"
-                android:onClick="btnConferences_Click"
+                android:onClick="btnconferences_Click"
                 android:text="Events"
                 android:drawableTop="@drawable/events_button"/>
 			<Button android:id="@+id/btnabout"

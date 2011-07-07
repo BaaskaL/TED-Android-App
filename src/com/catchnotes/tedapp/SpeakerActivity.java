@@ -31,15 +31,18 @@ import com.tedx.objects.SearchResult;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 public class SpeakerActivity extends Activity{
 	public WebView mWebView;
 	private IntentIntegrator _notesIntent;
-	private Bundle speaker;
+	private Bundle mSpeaker;
 
     protected void onCreate(Bundle savedInstanceState) {
     	requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -47,70 +50,51 @@ public class SpeakerActivity extends Activity{
         setContentView(R.layout.speakerview);
         _notesIntent = new IntentIntegrator(this);
 
-        speaker = getIntent().getExtras();            
+        mSpeaker = getIntent().getExtras();            
    
         mWebView = (WebView) findViewById(R.id.webview);   
         mWebView.setInitialScale(120);
         mWebView.getSettings().setJavaScriptEnabled(true);
-        
+
+        /*
         StringBuilder querystring = new StringBuilder();
         querystring.append("description=");
-        querystring.append(speaker.get("Description").toString());
+        querystring.append(mSpeaker.get("Description").toString());
         
         querystring.append("&speakername=");
-        querystring.append(speaker.get("ProfileName").toString());
+        querystring.append(mSpeaker.get("ProfileName").toString());
 
         querystring.append("&speakertitle=");
-        querystring.append(speaker.get("Title").toString());
+        querystring.append(mSpeaker.get("Title").toString());
         
         querystring.append("&speakerphoto=");
-        querystring.append(speaker.get("PhotoUrl").toString());
+        querystring.append(mSpeaker.get("PhotoUrl").toString());
+        */
         
-		String url = "file:///android_asset/speaker/index.html?" + querystring.toString();
+		mWebView.setWebViewClient(new WebViewClient(){
+			public void onPageFinished (WebView view, String url)
+			{
+				mWebView.loadUrl("javascript:setSpeakerDescription('" + mSpeaker.get("Description").toString().replace("'", "").replace(System.getProperty("line.separator"), "").replace("\r", "<br />") + "')");
+				mWebView.loadUrl("javascript:setSpeakerName('" + mSpeaker.get("ProfileName").toString().replace("'", "").replace(System.getProperty("line.separator"), "").replace("\r", "<br />") + "')");
+				mWebView.loadUrl("javascript:setSpeakerPhoto('" + mSpeaker.get("PhotoUrl").toString().replace("'", "").replace(System.getProperty("line.separator"), "").replace("\r", "<br />") + "')");
+				mWebView.loadUrl("javascript:setSpeakerTitle('" + mSpeaker.get("Title").toString().replace("'", "").replace(System.getProperty("line.separator"), "").replace("\r", "<br />") + "')");
+			}
+		});
+        
+        String url = "file:///android_asset/speaker/index.html";
 		
 		mWebView.loadUrl(url);
 		
     }
     
-    public void onResume()
-	{	
-    	super.onResume();
-        setContentView(R.layout.speakerview);
-
-        speaker = getIntent().getExtras();            
-        
-        mWebView = (WebView) findViewById(R.id.webview);
-        mWebView.setInitialScale(120);
-        mWebView.getSettings().setJavaScriptEnabled(true);
-
-        mWebView = (WebView) findViewById(R.id.webview);
-		
-        StringBuilder querystring = new StringBuilder();
-        querystring.append("description=");
-        querystring.append(speaker.get("Description").toString());
-        
-        querystring.append("&speakername=");
-        querystring.append(speaker.get("ProfileName").toString());
-
-        querystring.append("&speakertitle=");
-        querystring.append(speaker.get("Title").toString());
-        
-        querystring.append("&speakerphoto=");
-        querystring.append(speaker.get("PhotoUrl").toString());
-        
-		String url = "file:///android_asset/speaker/index.html?" + querystring.toString();
-		
-		mWebView.loadUrl(url);
-	}
-    
     //Writing Notes with this specific speaker
     public void btnWrite_Click(View target)
     {
-    	String speakerNote 	= 	"Speaker: " + speaker.getString(SearchResult.NAME) + "\n" +
-    							"Title: " + speaker.getString(SearchResult.TITLE) + "\n" + 
-    							"Bio: " + speaker.getString(SearchResult.DESCRIPTION) + "\n" + 
-    							"\nWebsite: " + speaker.getString(SearchResult.WEBSITE) + "\n" +
-    							"\nTwitter: " + speaker.getString(SearchResult.TWITTER) + "\n" +
+    	String speakerNote 	= 	"Speaker: " + mSpeaker.getString(SearchResult.NAME) + "\n" +
+    							"Title: " + mSpeaker.getString(SearchResult.TITLE) + "\n" + 
+    							"Bio: " + mSpeaker.getString(SearchResult.DESCRIPTION) + "\n" + 
+    							"\nWebsite: " + mSpeaker.getString(SearchResult.WEBSITE) + "\n" +
+    							"\nTwitter: " + mSpeaker.getString(SearchResult.TWITTER) + "\n" +
     							"\nMy Notes: " + "\n\n" + 
     							"\n________________________________\nTags:" +
     							ArchiveLogic.GetEventtag(this);

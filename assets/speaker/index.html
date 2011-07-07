@@ -108,30 +108,22 @@
 	<script language="javascript" type="text/javascript" src="../javascript/json2.js"></script> 
 	
 	<script langauge="javascript" type="text/javascript">
-	    function getQueryString() {
-		  var result = {}, queryString = location.search.substring(1),
-		      re = /([^&=]+)=([^&]*)/g, m;
-		
-		  while (m = re.exec(queryString)) {
-		    result[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
-		  }
-		
-		  return result;
+	    function setSpeakerDescription(content) {
+			$('#speakerdescription').append(content);
 		}
 		
-		$(document).ready(
-			function(){ 
-				var speakerdescription = getQueryString()["description"];
-				var speakername = getQueryString()["speakername"];
-				var speakertitle = getQueryString()["speakertitle"];
-				var speakerphoto = getQueryString()["speakerphoto"];
-				
-				$('#speakertitle').text(speakertitle);
-				$('#speakername').text(speakername);
-				$('#speakerdescription').text(speakerdescription);
-				$('#speakerphoto').attr('src', speakerphoto);
-		});
+		function setSpeakerName(content) {
+			$('#speakername').append(content);
+		}
 		
+		function setSpeakerPhoto(content) {
+			$('#speakerphoto').attr('src', content);
+		
+		}
+		
+		function setSpeakerTitle(content) {
+			$('#speakertitle').append(content);
+		}
     </script>
 </head>
 <body>
@@ -141,7 +133,7 @@
 			<h3><span id="speakername"></span></h3>
 			<span><i id="speakertitle"></i></span>
 		</div>
-		<p id="speakerdescription" class="speakerdescription">as dfa fa</p>
+		<p id="speakerdescription" class="speakerdescription"></p>
     </div>
 </body>
 </html>

@@ -79,7 +79,7 @@ public class Main extends Activity {
     }
     
     //Loading up all the Archived Conferences
-    public void btnConferences_Click(View target){
+    public void btnconferences_Click(View target){
     	Intent intent = new Intent(this, ArchiveActivity.class);
 		this.startActivity(intent);    	
     }

@@ -32,6 +32,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.Window;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -53,9 +54,9 @@ public class AboutActivity extends Activity{
 		int ServerEventVersion = SearchResultLogic.getSearchResultVersionByEventId(this.getResources(), mEventId);
 		
 		//check point to load from cache or web
-		if(	ServerEventVersion != 0 &&
-			SearchResultLogic.getCurrentVersionByEventIdFromCache(this, mEventId) != ServerEventVersion &&
-			SearchResultLogic.getEventAboutByEventIdFromCache(this, mEventId) == "")
+		if((ServerEventVersion != 0 &&
+			SearchResultLogic.getCurrentVersionByEventIdFromCache(this, mEventId) != ServerEventVersion) ||
+			SearchResultLogic.getEventAboutByEventIdFromCache(this, mEventId).equalsIgnoreCase(""))
 		{
 			mContent = SearchResultLogic.getEventAboutByEventId(this, mEventId);
 		}
@@ -64,15 +65,21 @@ public class AboutActivity extends Activity{
 			mContent = SearchResultLogic.getEventAboutByEventIdFromCache(this, mEventId);
 		}
 		
-		mWebView.loadUrl(url);
+		
+		// Get the settings
+		WebSettings webSettings = mWebView.getSettings();
+		// Enable Javascript for interaction
+		webSettings.setJavaScriptEnabled(true);
 		
 		mWebView.setWebViewClient(new WebViewClient(){
 			public void onPageFinished (WebView view, String url)
 			{
-				mWebView.loadUrl("javascript:setContent(" + mContent + ")");
+				mWebView.loadUrl("javascript:setContent('" + mContent.replace("'", "").replace(System.getProperty("line.separator"), "").replace("\r", "<br />")+ "')");
 			}
-			
 		});
+		
+		mWebView.loadUrl(url);
+
     }
 
     //Back Button
