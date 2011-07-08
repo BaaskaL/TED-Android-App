@@ -31,6 +31,7 @@ import com.tedx.logics.SearchResultLogic;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.View;
 import android.view.Window;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -70,7 +71,8 @@ public class AboutActivity extends Activity{
 		WebSettings webSettings = mWebView.getSettings();
 		// Enable Javascript for interaction
 		webSettings.setJavaScriptEnabled(true);
-		
+		mWebView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
+
 		mWebView.setWebViewClient(new WebViewClient(){
 			public void onPageFinished (WebView view, String url)
 			{

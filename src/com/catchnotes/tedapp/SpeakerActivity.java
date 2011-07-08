@@ -56,21 +56,8 @@ public class SpeakerActivity extends Activity{
         mWebView.setInitialScale(120);
         mWebView.getSettings().setJavaScriptEnabled(true);
 
-        /*
-        StringBuilder querystring = new StringBuilder();
-        querystring.append("description=");
-        querystring.append(mSpeaker.get("Description").toString());
-        
-        querystring.append("&speakername=");
-        querystring.append(mSpeaker.get("ProfileName").toString());
+		mWebView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
 
-        querystring.append("&speakertitle=");
-        querystring.append(mSpeaker.get("Title").toString());
-        
-        querystring.append("&speakerphoto=");
-        querystring.append(mSpeaker.get("PhotoUrl").toString());
-        */
-        
 		mWebView.setWebViewClient(new WebViewClient(){
 			public void onPageFinished (WebView view, String url)
 			{

@@ -24,7 +24,10 @@
 -->
 <resources>
     <!-- Base application theme is the default theme. -->
-    <style name="Theme" parent="android:Theme"></style>
+    <style name="Theme" parent="android:Theme.Light">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
 
     <!-- Variation on the Light theme that turns off the title -->
     <style name="Theme.IOSched" parent="android:style/Theme.Light">
