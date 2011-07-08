@@ -143,6 +143,25 @@ public class SubEventSessionResultActivity extends GroupLazyActivity{
 	        }
 	    }
 	    
+	    //Sort by SpeakerOrder
+	    for (int pass=1; pass < n; pass++) {  // count how many times
+	        // This next loop becomes shorter and shorter
+	        for (int i=0; i < n-pass; i++) {
+	            try {
+					if (ret.getJSONObject(i).getInt("Session") == ret.getJSONObject(i + 1).getInt("Session") &&
+						ret.getJSONObject(i).getInt("SpeakerOrder") > ret.getJSONObject(i + 1).getInt("SpeakerOrder")
+						) {
+					    // exchange elements
+						JSONObject temp = ret.getJSONObject(i);
+						ret.put(i, ret.getJSONObject(i + 1));
+						ret.put(i + 1, temp);
+					}
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	        }
+	    }
 	    return ret;
 	}
 
