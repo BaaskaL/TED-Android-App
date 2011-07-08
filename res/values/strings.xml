@@ -40,7 +40,7 @@
 	<string name="error_loading_message">There was an issue contacting the server. Please try again later.</string>  
 
 	<!--Google Fusion Url-->
-	<string name="GetEventSpeakers">https://www.google.com/fusiontables/api/query?sql=SELECT+SpeakerId%2C+EventId%2C+SpeakerOrder%2C+FirstName%2C+LastName%2C+Title%2C+Topic%2C+Facebook%2C+Email%2C+Website%2C+Twitter%2C+Description%2C+PhotoUrl%2C+ScheduleDate%2C+Session+FROM+561408+WHERE+EventId%3D{eventid}&amp;jsonCallback=</string>
+	<string name="GetEventSpeakers">https://www.google.com/fusiontables/api/query?sql=SELECT+SpeakerId%2C+EventId%2C+SpeakerOrder%2C+FirstName%2C+LastName%2C+Title%2C+Topic%2C+Facebook%2C+Email%2C+Website%2C+Twitter%2C+Description%2C+PhotoUrl%2C+ScheduleDate%2C+Session+FROM+561408+WHERE+EventId%3D{eventid}+ORDER%20BY+FirstName&amp;jsonCallback=</string>
 	<string name="GetEventSpeakersCallBack">speakers</string>
 	<string name="GetEventSessions">https://www.google.com/fusiontables/api/query?sql=SELECT+SessionId%2C+SessionTime%2C+SessionName+FROM+560983+WHERE+EventId%3D{eventid}&amp;jsonCallback=</string>
 	<string name="GetEventSessionsCallBack">sessions</string>
