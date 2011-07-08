@@ -38,7 +38,10 @@ import android.app.SearchManager;
 import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -54,6 +57,8 @@ public class Main extends Activity {
 	private static final int MENU_FACEBOOK = 2;
 	private static final int MENU_TWITTER = 3;
 	
+	private static final String TRACKER_PACKAGE_NAME = "com.catchnotes.tedapp"; 
+
 	private ImageView mImgTop;
 
     @Override
@@ -92,13 +97,35 @@ public class Main extends Activity {
     
     //Loading Contact (Email)
     public void btncontact_Click(View target){
-    	String emailaddress = this.getString(R.string.email_subject);
+    	String emailaddress = this.getString(R.string.email_address);
     	String emailsubject = this.getString(R.string.email_subject);
 
+		String info;
+		String version = "x.xx";
+
+		try {
+			info = "\n\n----\nDevice: " + Build.MODEL + " (\"" + Build.DEVICE +
+				"\")\nBrand: " + Build.BRAND + "\nOS: Android " + Build.VERSION.RELEASE +
+				"\nBuild: " + Build.DISPLAY + "";
+		} catch (Exception e) {
+			info = "";
+			e.printStackTrace();
+		}
+		
+		try {
+			PackageInfo pinfo = this.getPackageManager().getPackageInfo(
+					TRACKER_PACKAGE_NAME, 0);
+			version = pinfo.versionName;
+		} catch (NameNotFoundException e) {
+			e.printStackTrace();
+		}
+		
     	final Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
     	emailIntent.setType("plain/text");
     	emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{emailaddress});
-    	emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, emailsubject);    	
+    	emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, emailsubject + version);    
+    	emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, info);    	
+
     	startActivity(Intent.createChooser(emailIntent, "Send mail..."));
     }
     
