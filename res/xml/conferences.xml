@@ -15,6 +15,17 @@
   limitations under the License.
   -->
 <resources>
+    <conference conferencename="TED2012"
+    			eventid="24"
+    			subeventid="25"
+    			logo="@drawable/ted2012"
+    			eventtag="\#TED2012"
+    			address="300 E. Ocean Boulevard Long Beach, CA 90802"
+    			latitude="33.765181"
+    			longitude="-118.190553"
+    			venuename="Long Beach Convention and Entertainment Center"
+				/>
+
     <conference conferencename="TEDGlobal2011"
     			eventid="21"
     			subeventid="22"

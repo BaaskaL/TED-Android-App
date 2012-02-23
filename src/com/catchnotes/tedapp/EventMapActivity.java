@@ -47,16 +47,16 @@ import com.catchnotes.tedapp.R;
 //This portion is temporary here, it will be changed pull data from the server
 public class EventMapActivity extends MapActivity {
 	MapView mapView;
-	
+
 	List<Overlay> mapOverlays;
 	Drawable drawable;
 	HelloItemizedOverlay itemizedOverlay;
-	
+
     ArrayList<String> Latitude = new ArrayList<String>();
     ArrayList<String> Longitude = new ArrayList<String>();
     ArrayList<String> Name = new ArrayList<String>();
 	ArrayList<String> Description = new ArrayList<String>();
-	
+
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,25 +85,25 @@ public class EventMapActivity extends MapActivity {
         //itemizedOverlay = new HelloItemizedOverlay(drawable);
         LoadMap();
     }
-		
-	
+
+
 	public void LoadMap()
 	{
 		int size = Longitude.size();
 		for(int i = 0; i < size; i++)
 		{
-			
+
 			int tmpLat = (int)(Float.valueOf(Latitude.get(i)) * 1000000);
 			int tmpLong = (int)(Float.valueOf(Longitude.get(i)) * 1000000);
 			GeoPoint point = new GeoPoint(tmpLat, tmpLong);
 			OverlayItem overlayitem = new OverlayItem(point, Name.get(i), Description.get(i));
 
 			//itemizedOverlay.addOverlay(overlayitem);
-			
+
 			HelloItemizedOverlay temp = new HelloItemizedOverlay(this.getResources().getDrawable(R.drawable.pin));
 			temp.addOverlay(overlayitem);
 			mapOverlays.add(temp);	
-			
+
 			if(i == 1)
 			{
 				mapView.getController().setZoom(16);
@@ -111,7 +111,7 @@ public class EventMapActivity extends MapActivity {
 			}
 		}
 	}
-	
+
 	@Override
 	protected boolean isRouteDisplayed() {
 	    return false;
@@ -182,8 +182,8 @@ public class EventMapActivity extends MapActivity {
              })
              .setNeutralButton("Directions", new DialogInterface.OnClickListener() {
                  public void onClick(DialogInterface dialog, int whichButton) {
-                	 String uri = "google.navigation:q=" 
-                		 + EventMapActivity.this.getResources().getString(R.string.event_address);
+                	 String uri = "google.navigation:q=" +
+                			 String.valueOf(Latitude.get(0)) + "," + String.valueOf(Longitude.get(0));
                 	 startActivity(new Intent(android.content.Intent.ACTION_VIEW, Uri.parse(uri)));  
                  }
              })

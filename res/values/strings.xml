@@ -23,18 +23,11 @@
 	THE SOFTWARE.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name">TEDGlobal 2011</string>
-	<string name="notetag">"\n\n#TEDGlobal2011</string>
+    <string name="app_name">TED2012</string>
     <string name="facebookurl">http://touch.facebook.com/#/ted</string>
 	<string name="twitterurl">http://www.twitter.com/tedtalks</string>
     <string name="email_subject">Question about TEDConference App</string>
     <string name="email_address">peter@catch.com</string>
-    <string name="eventId">20</string>
-    <string name="event_address">300 E. Ocean Boulevard Long Beach, CA 90802</string>
-	<string name="eventSessions">12</string>
-    
-    <string name="subEventId">18</string>
-    <string name="subEventSessions">3</string>
     
 	<string name="error_loading_title">Network issue</string>
 	<string name="error_loading_message">There was an issue contacting the server. Please try again later.</string>  

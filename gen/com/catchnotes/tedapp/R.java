@@ -99,16 +99,17 @@ public final class R {
         public static final int speakers=0x7f020037;
         public static final int speakers_off=0x7f020038;
         public static final int ted2011=0x7f020039;
-        public static final int tedglobal2011=0x7f02003a;
-        public static final int twitter=0x7f02003b;
-        public static final int twitter_button=0x7f02003c;
-        public static final int twitter_focused=0x7f02003d;
-        public static final int twitter_menu=0x7f02003e;
-        public static final int twitter_pressed=0x7f02003f;
-        public static final int university=0x7f020040;
-        public static final int university_button=0x7f020041;
-        public static final int university_focused=0x7f020042;
-        public static final int university_pressed=0x7f020043;
+        public static final int ted2012=0x7f02003a;
+        public static final int tedglobal2011=0x7f02003b;
+        public static final int twitter=0x7f02003c;
+        public static final int twitter_button=0x7f02003d;
+        public static final int twitter_focused=0x7f02003e;
+        public static final int twitter_menu=0x7f02003f;
+        public static final int twitter_pressed=0x7f020040;
+        public static final int university=0x7f020041;
+        public static final int university_button=0x7f020042;
+        public static final int university_focused=0x7f020043;
+        public static final int university_pressed=0x7f020044;
     }
     public static final class id {
         public static final int ImageView01=0x7f090020;
@@ -164,59 +165,53 @@ public final class R {
         public static final int webview=0x7f03000a;
     }
     public static final class string {
-        public static final int EventAboutPreference=0x7f050022;
-        public static final int EventAboutPreference_EventAbout=0x7f050023;
-        public static final int EventSelectorPreference=0x7f050026;
+        public static final int EventAboutPreference=0x7f05001c;
+        public static final int EventAboutPreference_EventAbout=0x7f05001d;
+        public static final int EventSelectorPreference=0x7f050020;
         /** Preferences
          */
-        public static final int EventVersionPreference=0x7f050020;
-        public static final int EventVersionPreference_EventVersion=0x7f050021;
-        public static final int EventVersionPreference_Sessions=0x7f050025;
-        public static final int EventVersionPreference_Speakers=0x7f050024;
-        public static final int GetEventAbout=0x7f05001e;
-        public static final int GetEventAboutCallBack=0x7f05001f;
-        public static final int GetEventSessions=0x7f05001a;
-        public static final int GetEventSessionsCallBack=0x7f05001b;
+        public static final int EventVersionPreference=0x7f05001a;
+        public static final int EventVersionPreference_EventVersion=0x7f05001b;
+        public static final int EventVersionPreference_Sessions=0x7f05001f;
+        public static final int EventVersionPreference_Speakers=0x7f05001e;
+        public static final int GetEventAbout=0x7f050018;
+        public static final int GetEventAboutCallBack=0x7f050019;
+        public static final int GetEventSessions=0x7f050014;
+        public static final int GetEventSessionsCallBack=0x7f050015;
         /** Google Fusion Url
          */
-        public static final int GetEventSpeakers=0x7f050018;
-        public static final int GetEventSpeakersCallBack=0x7f050019;
-        public static final int GetEventVersion=0x7f05001c;
-        public static final int GetEventVersionCallBack=0x7f05001d;
+        public static final int GetEventSpeakers=0x7f050012;
+        public static final int GetEventSpeakersCallBack=0x7f050013;
+        public static final int GetEventVersion=0x7f050016;
+        public static final int GetEventVersionCallBack=0x7f050017;
         public static final int app_name=0x7f05000b;
-        public static final int attendeefacebook=0x7f050027;
-        public static final int attendeetwitter=0x7f050028;
+        public static final int attendeefacebook=0x7f050021;
+        public static final int attendeetwitter=0x7f050022;
         public static final int cancel_button=0x7f050000;
-        public static final int create_image_note_button=0x7f05002b;
-        public static final int create_location_note_button=0x7f05002d;
-        public static final int create_quick_note_button=0x7f05002c;
-        public static final int create_simple_note_button=0x7f05002a;
-        public static final int cursor_positioning_button=0x7f05002f;
-        public static final int email_address=0x7f050010;
-        public static final int email_subject=0x7f05000f;
+        public static final int create_image_note_button=0x7f050025;
+        public static final int create_location_note_button=0x7f050027;
+        public static final int create_quick_note_button=0x7f050026;
+        public static final int create_simple_note_button=0x7f050024;
+        public static final int cursor_positioning_button=0x7f050029;
+        public static final int email_address=0x7f05000f;
+        public static final int email_subject=0x7f05000e;
         public static final int error_dialog_title=0x7f050003;
-        public static final int error_loading_message=0x7f050017;
-        public static final int error_loading_title=0x7f050016;
-        public static final int eventId=0x7f050011;
-        public static final int eventSessions=0x7f050013;
-        public static final int event_address=0x7f050012;
-        public static final int facebookurl=0x7f05000d;
+        public static final int error_loading_message=0x7f050011;
+        public static final int error_loading_title=0x7f050010;
+        public static final int facebookurl=0x7f05000c;
         public static final int install_button=0x7f050004;
         public static final int install_notes_message=0x7f050006;
         public static final int install_notes_title=0x7f050005;
         public static final int market_error_message=0x7f05000a;
         public static final int notes_intent_error=0x7f050007;
-        public static final int notetag=0x7f05000c;
         public static final int ok_button=0x7f050002;
-        public static final int poweredby=0x7f050029;
-        public static final int subEventId=0x7f050014;
-        public static final int subEventSessions=0x7f050015;
-        public static final int toast_quick_note=0x7f050030;
-        public static final int twitterurl=0x7f05000e;
+        public static final int poweredby=0x7f050023;
+        public static final int toast_quick_note=0x7f05002a;
+        public static final int twitterurl=0x7f05000d;
         public static final int upgrade_button=0x7f050001;
         public static final int upgrade_notes_message=0x7f050009;
         public static final int upgrade_notes_title=0x7f050008;
-        public static final int view_notes_button=0x7f05002e;
+        public static final int view_notes_button=0x7f050028;
     }
     public static final class style {
         public static final int ActionButton=0x7f0a0018;

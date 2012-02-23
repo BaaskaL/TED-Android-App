@@ -24,6 +24,7 @@
 -->
 <resources>
     <string-array name="TEDConferences">
+        <item>TED2012</item>
         <item>TEDGlobal2011</item>
         <item>TED2011</item>
     </string-array>

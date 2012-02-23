@@ -27,7 +27,6 @@ package com.catchnotes.tedapp;
 import java.util.ArrayList;
 
 import com.catchnotes.tedapp.AboutActivity;
-import com.catchnotes.tedapp.ScheduleActivity;
 import com.catchnotes.tedapp.R;
 import com.tedx.logics.ArchiveLogic;
 import com.tedx.utility.IntentIntegrator;
@@ -129,12 +128,6 @@ public class Main extends Activity {
     	startActivity(Intent.createChooser(emailIntent, "Send mail..."));
     }
     
-    //Loading Schedule
-    public void btnschedule_Click(View target){
-    	Intent intent = new Intent(this, ScheduleActivity.class);
-		this.startActivity(intent);
-    }
-    
     //Loading Facebook
     public void btnfacebook_Click(View target){
 
@@ -162,7 +155,6 @@ public class Main extends Activity {
     //Loading Map
     public void btnmap_Click(View target)
     {
-
     	Intent intent = new Intent(this, EventMapActivity.class);
 
 	    ArrayList<String> Latitude = new ArrayList<String>();
@@ -219,28 +211,7 @@ public class Main extends Activity {
     	Intent intent = new Intent(this, SubEventSpeakerResultTabActivity.class);
 		this.startActivity(intent);
     }
-    
-    @Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
-        if (requestCode == 0) {
-            if (resultCode == RESULT_OK) {
-                String contents = intent.getStringExtra("SCAN_RESULT");
-                //String format = intent.getStringExtra("SCAN_RESULT_FORMAT");
-                
-            	Intent attendee = new Intent(this, AttendeeActivity.class);
-            	attendee.putExtra("EventUniqueId", contents);
-        		this.startActivity(attendee);
-                // Handle successful scan
-            } else if (resultCode == RESULT_CANCELED) {
-                // Handle cancel
-            }
-        }
-        else
-        {
-        	super.onActivityResult(requestCode, resultCode, intent);
-        }
-	}
-    
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {		
 		// sets the search menu button key
