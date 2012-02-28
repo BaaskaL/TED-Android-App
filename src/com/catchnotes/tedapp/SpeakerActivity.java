@@ -51,7 +51,7 @@ public class SpeakerActivity extends Activity{
         mSpeaker = getIntent().getExtras();            
    
         mWebView = (WebView) findViewById(R.id.webview);   
-        mWebView.setInitialScale(120);
+        //mWebView.setInitialScale(120);
         mWebView.getSettings().setJavaScriptEnabled(true);
 
 		mWebView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
